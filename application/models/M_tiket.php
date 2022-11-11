@@ -26,7 +26,14 @@ class M_tiket extends CI_Model
     {
         $this->db->insert('tiket', $data);
     }
-
+    public function id_tiket()
+    {
+        return $this->db->query('SELECT max(id_tiket) as id FROM tiket')->row();
+    }
+    public function add_promo($data)
+    {
+        $this->db->insert('promo', $data);
+    }
     public function edit($data)
     {
         $this->db->where('id_tiket', $data['id_tiket']);
