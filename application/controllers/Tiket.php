@@ -44,6 +44,17 @@ class Tiket extends CI_Controller
                 'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
             );
             $this->m_tiket->add($data);
+
+            //menambahkan data ke tabel diskon otomatis
+            $id = $this->m_tiket->id_tiket();
+            $id_tiket = $id->id;
+            $promo = array(
+                'id_tiket' => $id_tiket,
+                'tgl_promo' => date('Y-m-d'),
+                'ket' => '0',
+                'range' => '0'
+            );
+            $this->m_tiket->add_promo($promo);
             $this->session->set_flashdata('pesan', 'Data Tiket Berhasil Ditambahkan');
             redirect('tiket', 'refresh');
         }
