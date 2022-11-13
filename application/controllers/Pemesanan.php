@@ -10,12 +10,25 @@ class Pemesanan extends CI_Controller
         $this->load->model('m_pemesanan');
     }
 
+    public function index()
+    {
+        $data = array(
+            'title' => 'Pesanan Saya',
+            'pesanan' => $this->m_pemesanan->pesanan(),
+            'belum_bayar' => $this->m_pemesanan->belum_bayar(),
+            'diproses' => $this->m_pemesanan->diproses(),
+            'selesai' => $this->m_pemesanan->selesai(),
+            'isi' => 'frontend/pesanan/v_pesanan'
+        );
+        $this->load->view('frontend/v_wrapper', $data, FALSE);
+    }
+
     public function belum_bayar()
     {
         $data = array(
             'title' => 'Pesanan Masuk',
             'belum_bayar' => $this->m_pemesanan->belum_bayar(),
-            'isi' => 'frontend/pesanan/v_pesanan_saya'
+            'isi' => 'frontend/pesanan/v_pesanan'
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);
     }
@@ -48,7 +61,7 @@ class Pemesanan extends CI_Controller
     }
 
     //-------------------- PEMBAYARAN --------------------
-    public function bayar($id_pembayaran)
+    public function bayar($id_pemesanan)
     {
         $this->form_validation->set_rules('atas_nama', 'Atas Nama', 'required', array('required' => '%s Mohon Untuk Diisi !!!'));
 
@@ -62,7 +75,7 @@ class Pemesanan extends CI_Controller
             if (!$this->upload->do_upload($field_name)) {
                 $data = array(
                     'title' => 'Pembayaran',
-                    'pesanan' => $this->m_pemesanan->detail_pesanan($id_pembayaran),
+                    'pesanan' => $this->m_pemesanan->detail_pesanan($id_pemesanan),
                     'error_upload' => $this->upload->display_errors(),
                     'isi' => 'frontend/pesanan/v_bayar'
                 );
@@ -73,20 +86,27 @@ class Pemesanan extends CI_Controller
                 $config['source_image'] = './assets/bukti_bayar' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
                 $data = array(
-                    'id_pembayaran' => $id_pembayaran,
+                    'id_pemesanan' => $id_pemesanan,
                     'atas_nama' => $this->input->post('atas_nama'),
                     'bukti_bayar' => $upload_data['uploads']['file_name'],
                 );
-                $this->m_pemesanan->upload_buktibayar($data);
+                $this->m_pemesanan->simpan_pembayaran($data);
+
+                $status = array(
+                    'id_pemesanan' => $id_pemesanan,
+                    'status_pembayaran' => '1',
+                );
+                $this->m_pemesanan->update_status_pembayaran($status);
+
                 $this->session->set_flashdata('pesan', 'Data Berhasil DiUpload !!!');
-                redirect('pesanan_saya');
+                redirect('Pemesanan');
             }
         }
 
         $data = array(
             'title' => 'Pembayaran',
-            'pesanan' => $this->m_pemesanan->detail_pesanan($id_pembayaran),
-            'rekening' => $this->m_pemesanan->rekening(),
+            'pesanan' => $this->m_pemesanan->detail_pesanan($id_pemesanan),
+            // 'rekening' => $this->m_pemesanan->rekening(),
             'isi' => 'frontend/pesanan/v_bayar'
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);
