@@ -107,6 +107,7 @@
 </section>
 <!--================ Facilities Area  =================-->
 
+
 <!--================ Testimonial Area  =================-->
 <section class="testimonial_area section_gap">
     <div class="container">
@@ -115,70 +116,59 @@
             <!-- <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p> -->
         </div>
         <div class="testimonial_slider owl-carousel">
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="<?= base_url() ?>royal-master/image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
+            <?php
+            foreach ($ulasan as $key => $value) {
+            ?>
+                <div class="media testimonial_item">
+                    <img class="rounded-circle" src="<?= base_url() ?>royal-master/image/testtimonial-1.jpg" alt="">
+                    <div class="media-body">
+                        <p><?= $value->isi_ulasan ?></p>
+                        <a href="#">
+                            <h4 class="sec_h4"><?= $value->nama_wisatawan ?></h4>
+                        </a>
+                        <div class="star">
+                            <?php
+                            if ($value->rating == 5) {
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                            } else if ($value->rating == 4) {
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x"  aria-hidden="true"></i>';
+                            } else if ($value->rating == 3) {
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x"  aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x"  aria-hidden="true"></i>';
+                            } else if ($value->rating == 2) {
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                            } else if ($value->rating == 1) {
+                                echo '<i class="fa fa-star fa-2x text-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-star-o fa-2x" aria-hidden="true"></i>';
+                            }
+                            ?>
+                            <!-- <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star"></i></a>
+                            <a href="#"><i class="fa fa-star-half-o"></i></a> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="<?= base_url() ?>royal-master/image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="<?= base_url() ?>royal-master/image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="<?= base_url() ?>royal-master/image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

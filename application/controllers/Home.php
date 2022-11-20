@@ -15,6 +15,7 @@ class Home extends CI_Controller
         $data = array(
             'title' => 'Cipanas Subang',
             'tiket' => $this->m_home->tiket(),
+            'ulasan' => $this->m_home->ulasan(),
             'isi' => 'v_home'
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);

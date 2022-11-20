@@ -15,4 +15,9 @@ class M_home extends CI_Model
         $this->db->group_by('tiket.id_tiket');
         return $this->db->get()->result();
     }
+
+    public function ulasan()
+    {
+        return $this->db->query("SELECT * FROM `detail_pemesanan` JOIN ulasan ON detail_pemesanan.id_detail_pemesanan=ulasan.id_detail_pemesanan JOIN pemesanan ON pemesanan.id_pemesanan=detail_pemesanan.id_pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan WHERE  rating != 0;")->result();
+    }
 }
