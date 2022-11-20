@@ -92,9 +92,11 @@ class Pembelian extends CI_Controller
 
             //simpan ke tabel rinci transaksi
             $i = 1;
+            $j = 1;
             foreach ($this->cart->contents() as $item) {
                 $data_rinci = array(
                     'id_pemesanan' => $this->input->post('id_pemesanan'),
+                    'id_detail_pemesanan' => $this->input->post('id_detail_pemesanan' . $j++),
                     'id_tiket' => $item['id'],
                     'qty' => $this->input->post('qty' . $i++),
                 );
@@ -108,6 +110,20 @@ class Pembelian extends CI_Controller
             //     'bukti_bayar' => '0'
             // );
             // $this->m_pemesanan->simpan_pembayaran($pembayaran);
+
+            // simpan tabel ulasan
+            $j = 1;
+            foreach ($this->cart->contents() as $value) {
+                $penilaian = array(
+                    'id_detail_pemesanan' => $this->input->post('id_detail_pemesanan' . $j++),
+                    'isi_ulasan' => '0',
+                    'id_tiket' => $value['id'],
+                    'tgl_ulasan' => '0',
+                    'rating' => '0',
+                    'time_ulasan' => '0',
+                );
+                $this->m_pemesanan->penilaian($penilaian);
+            }
 
             $this->session->set_flashdata('pesan', 'Pesanan Diproses');
             $this->cart->destroy();
