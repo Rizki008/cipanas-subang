@@ -19,7 +19,7 @@ class Admin_login
 			$id_admin = $cek->id_admin;
 			$nama_admin = $cek->nama_admin;
 			$no_tlpn_admin = $cek->no_tlpn_admin;
-			
+
 			$alamat_admin = $cek->alamat_admin;
 
 			$username_admin = $cek->username_admin;
@@ -34,7 +34,11 @@ class Admin_login
 			$this->ci->session->set_userdata('username_admin', $username_admin);
 			$this->ci->session->set_userdata('level_admin', $level_admin);
 
-			redirect('admin');
+			if ($level_admin == 1) {
+				redirect('admin');
+			} elseif ($level_admin == 2) {
+				redirect('pemilik');
+			}
 		} else {
 			$this->ci->session->set_flashdata('error', 'Username Atau Password Salah');
 			redirect('admin/login');
