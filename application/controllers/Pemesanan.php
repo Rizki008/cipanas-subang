@@ -18,47 +18,12 @@ class Pemesanan extends CI_Controller
             'belum_bayar' => $this->m_pemesanan->belum_bayar(),
             'diproses' => $this->m_pemesanan->diproses(),
             'selesai' => $this->m_pemesanan->selesai(),
+            'batal' => $this->m_pemesanan->batal(),
             'isi' => 'frontend/pesanan/v_pesanan'
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);
     }
 
-    public function belum_bayar()
-    {
-        $data = array(
-            'title' => 'Pesanan Masuk',
-            'belum_bayar' => $this->m_pemesanan->belum_bayar(),
-            'isi' => 'frontend/pesanan/v_pesanan'
-        );
-        $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
-    public function diproses()
-    {
-        $data = array(
-            'title' => 'Pesanan Diproses',
-            'diproses' => $this->m_pemesanan->diproses(),
-            'isi' => 'frontend/pesanan/v_pesanan_saya'
-        );
-        $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
-    public function selesai()
-    {
-        $data = array(
-            'title' => 'Pesanan Selesai',
-            'selesai' => $this->m_pemesanan->selesai(),
-            'isi' => 'frontend/pesanan/v_pesanan_saya'
-        );
-        $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
-    public function batal()
-    {
-        $data = array(
-            'title' => 'Pesanan Batal',
-            'batal' => $this->m_pemesanan->batal(),
-            'isi' => 'frontend/pesanan/v_pesanan_saya'
-        );
-        $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
 
     //-------------------- PEMBAYARAN --------------------
     public function bayar($id_pemesanan)
@@ -112,59 +77,25 @@ class Pemesanan extends CI_Controller
         $this->load->view('frontend/v_wrapper', $data, FALSE);
     }
 
-    public function diterima($id_transaksi)
+    ##batal beli tiket
+    public function batal($id_pemesanan)
     {
         $data = array(
-            'id_transaksi' => $id_transaksi,
-            'status_order' => 3
+            'id_pemesanan' => $id_pemesanan,
+            'status_pemesanan' => '3',
         );
-        $this->m_pesanan_masuk->update_order($data);
-        $this->session->set_flashdata('pesan', 'Pesanan Telah Diterima');
-        redirect('pesanan_saya');
-    }
-
-    public function dibatalkan($id_transaksi)
-    {
-        $data = array(
-            'id_transaksi' => $id_transaksi,
-            'status_order' => 4
-        );
-        $this->m_pesanan_masuk->update_order($data);
+        $this->m_pemesanan->update_status_pembayaran($data);
         $this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
-        redirect('pesanan_saya');
+        redirect('pemesanan');
     }
-
-    //detail data order
-    public function detail($no_order)
+    #detail tiket dibeli
+    public function detail($id_pemesanan)
     {
         $data = array(
-            'title' => 'Pesanan',
-            'pesanan_detail' => $this->m_pemesanan->pesanan_detail($no_order),
-            'info' => $this->m_pemesanan->info($no_order),
-            'isi' =>  'frontend/pesanan/v_detail_pesanan'
+            'title' => 'Pesanan Saya',
+            'detail' => $this->m_pemesanan->detail($id_pemesanan),
+            'isi' => 'frontend/pesanan/v_detail'
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
-
-    //pemesanan selesai deteail & review produk
-    public function detail_selesai($no_order)
-    {
-        $this->form_validation->set_rules('isi', 'Catatan', 'required', array('required' => '%s Mohon untuk Diisi!!!'));
-        $this->form_validation->set_rules('nama_pelanggan', 'Catatan', 'required', array('required' => '%s Mohon untuk Diisi!!!'));
-
-        $data = array(
-            'title' => 'Pesanan',
-            'pesanan_detail' => $this->m_pemesanan->pesanan_detail($no_order),
-            'info' => $this->m_pemesanan->info($no_order),
-            'isi' =>  'frontend/pesanan/v_detail_selesai'
-        );
-        $this->load->view('frontend/v_wrapper', $data, FALSE);
-    }
-
-    public function insert_riview()
-    {
-        $data['insert'] = $this->m_pemesanan->insert_riview();
-        $this->session->set_flashdata('pesan', 'Berhasil Memberi Riview');
-        redirect('pesanan_saya');
     }
 }

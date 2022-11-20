@@ -93,11 +93,13 @@ class M_pemesanan extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function detail_pesanan($id_pemesanan)
+    public function detail($id_pemesanan)
     {
         $this->db->select('*');
         $this->db->from('pemesanan');
-        $this->db->where('id_pemesanan', $id_pemesanan);
-        return $this->db->get()->row();
+        $this->db->join('detail_pemesanan', 'pemesanan.id_pemesanan = detail_pemesanan.id_pemesanan', 'left');
+        $this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
+        $this->db->where('pemesanan.id_pemesanan', $id_pemesanan);
+        return $this->db->get()->result();
     }
 }

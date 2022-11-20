@@ -3,10 +3,10 @@
     <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
     <div class="container">
         <div class="page-cover text-center">
-            <h2 class="page-cover-tittle">Contact Us</h2>
+            <h2 class="page-cover-tittle"><?= $title ?></h2>
             <ol class="breadcrumb">
                 <li><a href="<?= base_url() ?>">Home</a></li>
-                <li class="active">Contact Us</li>
+                <li class="active"><?= $title ?></li>
             </ol>
         </div>
     </div>
@@ -23,18 +23,18 @@
                 <div class="contact_info">
                     <div class="info_item">
                         <i class="lnr lnr-home"></i>
-                        <h6>California, United States</h6>
-                        <p>Santa monica bullevard</p>
+                        <h6>Cipanas Subang</h6>
+                        <p>Kuningan Jawa Barat</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
-                        <h6><a href="#">00 (440) 9865 562</a></h6>
-                        <p>Mon to Fri 9am to 6 pm</p>
+                        <h6><a href="#">)892-1020-1029</a></h6>
+                        <p>Buka Senin-Minggu. Jam 08:00-16:00</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
-                        <h6><a href="#">support@colorlib.com</a></h6>
-                        <p>Send us your query anytime!</p>
+                        <h6><a href="#">cipanas_subang@gmail.com</a></h6>
+                        <!-- <p>Send us your query anytime!</p> -->
                     </div>
                 </div>
             </div>
