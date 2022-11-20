@@ -18,6 +18,10 @@ class M_pemesanan extends CI_Model
     {
         $this->db->insert('pembayaran', $data);
     }
+    public function penilaian($data)
+    {
+        $this->db->insert('ulasan', $data);
+    }
 
     public function upload_buktibayar($data)
     {

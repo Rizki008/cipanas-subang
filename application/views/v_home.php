@@ -4,10 +4,10 @@
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="banner_content text-center">
-                <h6>Away from monotonous life</h6>
-                <h2>Relax Your Mind</h2>
-                <p>If you are looking at blank cassettes on the web, you may be very confused at the<br> difference in price. You may see some for as low as $.17 each.</p>
-                <a href="#" class="btn theme_btn button_hover">Get Started</a>
+                <h6>Menenangkan Diri</h6>
+                <h2>Santai Pikiran Anda</h2>
+                <p>Jika Anda Ingin Menenangkan Pikiran anda dan menghangatkan badan anda supaya lebih rileks datangkan kesini dengan biaya yang sangat murah</p>
+                <!-- <a href="#" class="btn theme_btn button_hover">Get Started</a> -->
             </div>
         </div>
     </div>
@@ -17,8 +17,8 @@
 <section class="accomodation_area section_gap">
     <div class="container">
         <div class="section_title text-center">
-            <h2 class="title_color">Hotel Accomodation</h2>
-            <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, </p>
+            <h2 class="title_color">Tiket Masuk Cipanas Subang</h2>
+            <p>Dapatkan Promo pada tiket, Siapa cepat dia dapat</p>
         </div>
 
 
@@ -62,13 +62,13 @@
     </div>
     <div class="container">
         <div class="section_title text-center">
-            <h2 class="title_w">Royal Facilities</h2>
-            <p>Who are in extremely love with eco friendly system.</p>
+            <h2 class="title_w">Pasilitas Cipanas Subang</h2>
+            <p>Siapa yang sangat menyukai sistem ramah lingkungan.</p>
         </div>
         <div class="row mb_30">
             <div class="col-lg-4 col-md-6">
                 <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Restaurant</h4>
+                    <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Tempat Makan</h4>
                     <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
                 </div>
             </div>
@@ -108,7 +108,7 @@
 <!--================ Facilities Area  =================-->
 
 <!--================ About History Area  =================-->
-<section class="about_history_area section_gap">
+<!-- <section class="about_history_area section_gap">
     <div class="container">
         <div class="row">
             <div class="col-md-6 d_flex align-items-center">
@@ -123,15 +123,15 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!--================ About History Area  =================-->
 
 <!--================ Testimonial Area  =================-->
 <section class="testimonial_area section_gap">
     <div class="container">
         <div class="section_title text-center">
-            <h2 class="title_color">Testimonial from our Clients</h2>
-            <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+            <h2 class="title_color">Ulasan Wisatawan</h2>
+            <!-- <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p> -->
         </div>
         <div class="testimonial_slider owl-carousel">
             <div class="media testimonial_item">

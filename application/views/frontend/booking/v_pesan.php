@@ -55,6 +55,15 @@
                 <?php
                 $id_pemesanan = date('Ymd') . strtoupper(random_string('alnum', 8)); ?>
                 <form class="row contact_form" action="<?= base_url('pembelian/cekout') ?>" method="post" id="contactForm" novalidate="novalidate">
+                    <?php
+                    $i = 1;
+                    $j = 1;
+                    foreach ($this->cart->contents() as $items) {
+                        $id_detail_pemesanan = random_string('alnum', 5);
+                        echo form_hidden('qty' . $i++, $items['qty']);
+                        echo form_hidden('id_detail_pemesanan' . $j++, $id_detail_pemesanan);
+                    }
+                    ?>
                     <div class="col-md-6">
                         <div class="form-group">
                             <input class="form-control" name="tgl_booking" id="date" type="date" />
