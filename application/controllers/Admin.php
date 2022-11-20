@@ -26,17 +26,17 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == TRUE) {
             $username_admin = $this->input->post('username_admin');
             $password_admin = $this->input->post('password_admin');
-            $this->pelanggan_login->login($username_admin, $password_admin);
+            $this->admin_login->login($username_admin, $password_admin);
         }
         $data = array(
             'title' => 'Masuk Pelanggan',
-            'isi' => 'frontend/log/v_login'
+            'isi' => 'backend/log/v_login'
         );
-        $this->load->view('frontend/log/v_login', $data, FALSE);
+        $this->load->view('backend/log/v_login', $data, FALSE);
     }
 
     public function logout()
     {
-        $this->pelanggan_login->logout();
+        $this->admin_login->logout();
     }
 }
