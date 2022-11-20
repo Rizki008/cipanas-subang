@@ -84,6 +84,7 @@
                             <div class="percentage">
                                 <?php if ($value->status_pemesanan == 2) { ?>
                                     <span class="badge badge-success"> Tiket Telah Diambil</span>
+                                    <a href="<?= base_url('pemesanan/ulasan/' . $value->id_pemesanan) ?>" class="btn btn-sm btn-flat btn-warning">Ulasan</a>
                                 <?php } ?>
                             </div>
                         </div>
