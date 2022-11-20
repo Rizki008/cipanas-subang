@@ -98,4 +98,27 @@ class Pemesanan extends CI_Controller
         );
         $this->load->view('frontend/v_wrapper', $data, FALSE);
     }
+    //ulasan
+    public function ulasan($id_pemesanan)
+    {
+        $data = array(
+            'title' => 'Pesanan Saya',
+            'ulasan' => $this->m_pemesanan->detail_rating($id_pemesanan),
+            'isi' => 'frontend/ulasan/v_ulasan'
+        );
+        $this->load->view('frontend/v_wrapper', $data, FALSE);
+    }
+    public function rating($id_pemesanan)
+    {
+        $data = array(
+            'id_ulasan' => $this->input->post('id_ulasan'),
+            'rating' => $this->input->post('rating'),
+            'isi_ulasan' => $this->input->post('isi_ulasan'),
+            'tgl_ulasan' => date('Y-m-d'),
+            'status_ulasan' => 1,
+        );
+        $this->db->where('id_ulasan', $data['id_ulasan']);
+        $this->db->update('ulasan', $data);
+        redirect('pemesanan/ulasan/' . $id_pemesanan);
+    }
 }
