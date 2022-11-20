@@ -79,7 +79,7 @@ class Pembelian extends CI_Controller
         } else {
             //simpan ke tabel transaksi
             $data = array(
-                'id_user' => $this->session->userdata('id_user'),
+                'id_wisatawan' => $this->session->userdata('id_wisatawan'),
                 'id_pemesanan' => $this->input->post('id_pemesanan'),
                 'tgl_pemesanan' => date('Y-m-d'),
                 'tgl_booking' => $this->input->post('tgl_booking'),
