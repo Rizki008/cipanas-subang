@@ -65,7 +65,7 @@
                                 </div>
 
                             </form>
-                            <p class="text-center">Belum Punya akun ? <a data-toggle="tab" href="<?= base_url('pelanggan/registrasi') ?>">Registrasi</a></p>
+                            <p class="text-center">Belum Punya akun ? <a  href="<?= base_url('pelanggan/register') ?>">Registrasi</a></p>
                         </div>
                     </div>
                 </div>

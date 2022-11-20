@@ -52,7 +52,7 @@
                             } ?>
                             <form action="<?= base_url('pelanggan/register') ?>" method="POST" class="signin-form">
                                 <div class="form-group mt-3">
-                                    <input type="text" name="nama_user" class="form-control" value="<?= set_value('nama_user') ?>" required>
+                                    <input type="text" name="nama_wisatawan" class="form-control" value="<?= set_value('nama_wisatawan') ?>" required>
                                     <label class="form-control-placeholder" for="username">Nama Lengkap</label>
                                 </div>
                                 <div class="form-group mt-3">

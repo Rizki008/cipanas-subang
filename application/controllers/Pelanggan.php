@@ -15,7 +15,7 @@ class Pelanggan extends CI_Controller
     // List all your items
     public function register()
     {
-        $this->form_validation->set_rules('nama_user', 'Nama Pelanggan', 'required', array('required' => '%s Mohon Untuk Diisi !!!'));
+        $this->form_validation->set_rules('nama_wisatawan', 'Nama Wisatawan', 'required', array('required' => '%s Mohon Untuk Diisi !!!'));
         $this->form_validation->set_rules('no_hp', 'Nomor Hp', 'required|min_length[11]|max_length[13]', array(
             'required' => '%s Mohon Untuk Diisi !!!',
             'min_length' => '%s Minimal 11 angka !!!',
@@ -47,7 +47,7 @@ class Pelanggan extends CI_Controller
             $this->load->view('frontend/log/v_register', $data, FALSE);
         } else {
             $data = array(
-                'nama_user' => $this->input->post('nama_user'),
+                'nama_wisatawan' => $this->input->post('nama_wisatawan'),
                 'username' => $this->input->post('username'),
                 'no_hp' => $this->input->post('no_hp'),
                 'ttl' => $this->input->post('ttl'),
@@ -56,7 +56,6 @@ class Pelanggan extends CI_Controller
                 'provinsi' => $this->input->post('provinsi'),
                 'kab_kota' => $this->input->post('kab_kota'),
                 'alamat_detail' => $this->input->post('alamat_detail'),
-                'level_user' => '3',
             );
             $this->m_auth->register($data);
             $this->session->set_flashdata('pesan', 'Pendaftaran Berhasil, Silahkan Untuk Login!!!');
@@ -76,7 +75,7 @@ class Pelanggan extends CI_Controller
         if ($this->form_validation->run() == TRUE) {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $this->pelanggan_login->login($username, $password);
+            $this->pelanggan_login->login_wisatawan($username, $password);
         }
         $data = array(
             'title' => 'Masuk Pelanggan',
