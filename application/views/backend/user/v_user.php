@@ -19,13 +19,13 @@
                         foreach ($user as $key => $value) { ?>
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
-                                <td><?= $value->nama_user ?></td>
-                                <td><?= $value->username ?></td>
-                                <td><?= $value->password ?></td>
-                                <td><?= $value->level_user ?></td>
+                                <td><?= $value->nama_admin ?></td>
+                                <td><?= $value->username_admin ?></td>
+                                <td><?= $value->password_admin ?></td>
+                                <td><?= $value->level_admin ?></td>
                                 <td>
-                                    <a href="<?= base_url('user/edit/' . $value->id_user) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a>
-                                    <a href="<?= base_url('user/hapus/' . $value->id_user) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="<?= base_url('user/edit/' . $value->id_admin) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a>
+                                    <a href="<?= base_url('user/hapus/' . $value->id_admin) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

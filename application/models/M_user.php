@@ -7,33 +7,33 @@ class M_user extends CI_Model
     public function user()
     {
         $this->db->select('*');
-        $this->db->from('user');
-        $this->db->order_by('id_user', 'desc');
+        $this->db->from('admin');
+        $this->db->order_by('id_admin', 'desc');
         return $this->db->get()->result();
     }
 
-    public function detail_user($id_user)
+    public function detail_user($id_admin)
     {
         $this->db->select('*');
-        $this->db->from('user');
-        $this->db->where('id_user', $id_user);
+        $this->db->from('admin');
+        $this->db->where('id_admin', $id_admin);
         return $this->db->get()->row();
     }
 
     public function add($data)
     {
-        $this->db->insert('user', $data);
+        $this->db->insert('admin', $data);
     }
 
     public function edit($data)
     {
-        $this->db->where('id_user', $data['id_user']);
-        $this->db->update('user', $data);
+        $this->db->where('id_admin', $data['id_admin']);
+        $this->db->update('admin', $data);
     }
 
     public function delete($data)
     {
-        $this->db->where('id_user', $data['id_user']);
-        $this->db->delete('user');
+        $this->db->where('id_admin', $data['id_admin']);
+        $this->db->delete('admin');
     }
 }

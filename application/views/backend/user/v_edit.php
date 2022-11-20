@@ -9,30 +9,28 @@
                 </div>'
             );
 
-            echo form_open('tiket/edit/' . $tiket->id_tiket) ?>
+            echo form_open('user/edit/'.$user->id_admin) ?>
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4"><?= $title ?> &nbsp; <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i>Tambah Tiket</button></h6>
+                <h6 class="mb-4"><?= $title ?> &nbsp; <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i>Edit User</button></h6>
                 <div class="form-floating mb-3">
-                    <input type="text" name="nama_tiket" value="<?= $tiket->nama_tiket ?>" class="form-control" id="floatingInput" placeholder="Nama Tiket">
-                    <label for="floatingInput">Nama Tiket</label>
+                    <input type="text" name="nama_admin" value="<?= $user->nama_admin ?>" class="form-control" id="floatingInput" placeholder="Nama User">
+                    <label for="floatingInput">Nama User</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" name="harga_tiket" value="<?= $tiket->harga_tiket ?>" id="floatingPassword" placeholder="Harga Tiket">
-                    <label for="floatingPassword">Harga Tiket</label>
+                    <input type="text" class="form-control" name="username_admin" value="<?= $user->username_admin ?>" id="floatingPassword" placeholder="Username">
+                    <label for="floatingPassword">Username</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select class="form-select" id="floatingSelect" name="tipe_tiket" value="<?= $tiket->tipe_tiket ?>" aria-label="Floating label select example">
-                        <option selected value="<?= $tiket->id_tiket ?>"><?= $tiket->tipe_tiket ?></option>
-                        <!-- <option selected>Tipe Tiket</option> -->
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="floatingSelect" name="level_admin" value="<?= $user->level_admin ?>" aria-label="Floating label select example">
+                        <option selected value="<?= $user->id_admin ?>"><?= $user->level_admin ?></option>
+                        <option value="1">Admin</option>
+                        <option value="2">Pemilik</option>
                     </select>
-                    <label for="floatingSelect">Pilih Tipe Tiket</label>
+                    <label for="floatingSelect">Pilih Level User</label>
                 </div>
-                <div class="form-floating">
-                    <textarea class="form-control" name="deskripsi_tiket" placeholder="Deskripsi Tiket" id="floatingTextarea" style="height: 150px;"><?= $tiket->deskripsi_tiket ?></textarea>
-                    <label for="floatingTextarea">Deskripsi Tiket</label>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password_admin" value="<?= $user->password_admin ?>" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
                 </div>
             </div>
             <?php echo form_close() ?>
