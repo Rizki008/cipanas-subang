@@ -19,6 +19,35 @@ class Transaksi extends CI_Controller
         );
         $this->load->view('backend/v_wrapper', $data, FALSE);
     }
+    public function verifikasi($id_pemesanan)
+    {
+        $data = array(
+            'id_pemesanan' => $id_pemesanan,
+            'status_pemesanan' => 1
+        );
+        $this->m_transaksi->update($data);
+        $this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
+        redirect('transaksi/proses');
+    }
+    public function detail($id_pemesanan)
+    {
+        $data = array(
+            'title' => 'Booking Masuk',
+            'detail' => $this->m_transaksi->detail(),
+            'isi' => 'backend/transaksi/v_detail'
+        );
+        $this->load->view('backend/v_wrapper', $data, FALSE);
+    }
+    public function ambiltiket($id_pemesanan)
+    {
+        $data = array(
+            'id_pemesanan' => $id_pemesanan,
+            'status_pemesanan' => 2
+        );
+        $this->m_transaksi->update($data);
+        $this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
+        redirect('transaksi/selesai');
+    }
     public function proses()
     {
         $data = array(

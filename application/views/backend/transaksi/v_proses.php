@@ -12,7 +12,7 @@
                             <th scope="col">Tanggal Promo</th>
                             <th scope="col">Keterangan</th>
                             <th scope="col">Metode Bayar</th>
-                            <th scope="col">Status Bayar</th>
+                            <th scope="col">Status Bayar/Pemesanan</th>
                             <th scope="col">Setting</th>
                         </tr>
                     </thead>
@@ -33,18 +33,20 @@
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <?php if ($value->status_pemesanan == 0) { ?>
+                                    <?php if ($value->status_pemesanan == 0 and $value->status_pembayaran == 0) { ?>
                                         <span class="fa fa-primary">Belum Bayar</span>
+                                    <?php } elseif ($value->status_pemesanan == 0 and $value->status_pembayaran == 1) { ?>
+                                        <span class="fa fa-warning">Sudah Bayar <br> / Vaifikiasi</span>
                                     <?php } elseif ($value->status_pemesanan == 1) { ?>
-                                        <span class="fa fa-warning">Sudah Bayar</span>
+                                        <span class="fa fa-success">proses</span>
                                     <?php } elseif ($value->status_pemesanan == 2) { ?>
-                                        <span class="fa fa-success">Sudah Bayar</span>
+                                        <span class="fa fa-success">Selesai</span>
                                     <?php } elseif ($value->status_pemesanan == 3) { ?>
                                         <span class="fa fa-danger">Batal</span>
                                     <?php } ?>
                                 </td>
                                 <td>
-                                    <!-- <a href="<?= base_url('promo/edit/' . $value->id_promo) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a> -->
+                                    <a href="<?= base_url('transaksi/ambiltiket/' . $value->id_pemesanan) ?>" class="btn btn-success"><i class="fa fa-check-circle"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

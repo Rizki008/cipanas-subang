@@ -15,8 +15,13 @@ class M_transaksi extends CI_Model
         $this->db->where('status_pemesanan=0');
         $this->db->order_by('pemesanan.id_pemesanan', 'desc');
         $this->db->group_by('detail_pemesanan.id_pemesanan');
-
         return $this->db->get()->result();
+    }
+
+    public function update($data)
+    {
+        $this->db->where('id_pemesanan', $data['id_pemesanan']);
+        $this->db->update('pemesanan', $data);
     }
 
     public function proses()
