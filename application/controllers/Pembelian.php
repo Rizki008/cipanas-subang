@@ -120,7 +120,8 @@ class Pembelian extends CI_Controller
                     'id_tiket' => $value['id'],
                     'tgl_ulasan' => '0',
                     'rating' => '0',
-                    'time_ulasan' => '0',
+                    // 'time_ulasan' => '0',
+                    'status_ulasan' => '0'
                 );
                 $this->m_pemesanan->penilaian($penilaian);
             }
