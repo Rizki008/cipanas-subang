@@ -91,4 +91,16 @@ class M_transaksi extends CI_Model
         $this->db->where('id_pemesanan', $id_pemesanan);
         return $this->db->get()->row();
     }
+
+    public function grafik()
+    {
+        $this->db->select_sum('qty');
+        $this->db->select('tiket.nama_tiket');
+        //$this->db->select('rinci_transaksi.qty');
+        $this->db->from('detail_pemesanan');
+        $this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
+        $this->db->group_by('detail_pemesanan.id_tiket');
+        $this->db->order_by('qty', 'desc');
+        return $this->db->get()->result();
+    }
 }

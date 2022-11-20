@@ -29,4 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="<?= base_url() ?>backend/css/style.css" rel="stylesheet">
+
+    <!-- grafik  -->
+    <script src="<?= base_url() ?>backend/chart/dist/Chart.min.js"></script>
+    <script src="<?= base_url() ?>backend/chart/samples/utils.js"></script>
 </head>

@@ -51,10 +51,116 @@
                     <h6 class="mb-0">Worldwide Sales</h6>
                     <a href="">Show All</a>
                 </div>
-                <canvas id="worldwide-sales"></canvas>
+                <?php
+                foreach ($grafik as $key => $value) {
+                    $nama_tiket[] = $value->nama_tiket;
+                    $qty[] = $value->qty;
+                }
+                ?>
+                <canvas id="myChart"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart');
+                    var myChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: <?= json_encode($nama_tiket) ?>,
+                            datasets: [{
+                                label: 'Grafik Tiket',
+                                data: <?= json_encode($qty) ?>,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.80)',
+                                    'rgba(54, 162, 235, 0.80)',
+                                    'rgba(255, 206, 86, 0.80)',
+                                    'rgba(75, 192, 192, 0.80)',
+                                    'rgba(153, 102, 255, 0.80)',
+                                    'rgba(255, 159, 64, 0.80)',
+                                    'rgba(201, 76, 76, 0.3)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(0, 140, 162, 1)',
+                                    'rgba(158, 109, 8, 1)',
+                                    'rgba(201, 76, 76, 0.8)',
+                                    'rgba(0, 129, 212, 1)',
+                                    'rgba(201, 77, 201, 1)',
+                                    'rgba(255, 207, 207, 1)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(128, 98, 98, 1)',
+                                    'rgba(0, 0, 0, 1)',
+                                    'rgba(128, 128, 128, 1)',
+                                    'rgba(255, 99, 132, 0.80)',
+                                    'rgba(54, 162, 235, 0.80)',
+                                    'rgba(255, 206, 86, 0.80)',
+                                    'rgba(75, 192, 192, 0.80)',
+                                    'rgba(153, 102, 255, 0.80)',
+                                    'rgba(255, 159, 64, 0.80)',
+                                    'rgba(201, 76, 76, 0.3)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(0, 140, 162, 1)',
+                                    'rgba(158, 109, 8, 1)',
+                                    'rgba(201, 76, 76, 0.8)',
+                                    'rgba(0, 129, 212, 1)',
+                                    'rgba(201, 77, 201, 1)',
+                                    'rgba(255, 207, 207, 1)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(128, 98, 98, 1)',
+                                    'rgba(0, 0, 0, 1)',
+                                    'rgba(128, 128, 128, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(201, 76, 76, 0.3)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(0, 140, 162, 1)',
+                                    'rgba(158, 109, 8, 1)',
+                                    'rgba(201, 76, 76, 0.8)',
+                                    'rgba(0, 129, 212, 1)',
+                                    'rgba(201, 77, 201, 1)',
+                                    'rgba(255, 207, 207, 1)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(128, 98, 98, 1)',
+                                    'rgba(0, 0, 0, 1)',
+                                    'rgba(128, 128, 128, 1)',
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)',
+                                    'rgba(201, 76, 76, 0.3)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(0, 140, 162, 1)',
+                                    'rgba(158, 109, 8, 1)',
+                                    'rgba(201, 76, 76, 0.8)',
+                                    'rgba(0, 129, 212, 1)',
+                                    'rgba(201, 77, 201, 1)',
+                                    'rgba(255, 207, 207, 1)',
+                                    'rgba(201, 77, 77, 1)',
+                                    'rgba(128, 98, 98, 1)',
+                                    'rgba(0, 0, 0, 1)',
+                                    'rgba(128, 128, 128, 1)'
+                                ],
+                                fill: false,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
             </div>
         </div>
-        <div class="col-sm-12 col-xl-6">
+        <!-- <div class="col-sm-12 col-xl-6">
             <div class="bg-light text-center rounded p-4">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h6 class="mb-0">Salse & Revenue</h6>
@@ -62,203 +168,7 @@
                 </div>
                 <canvas id="salse-revenue"></canvas>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- Sales Chart End -->
-
-
-<!-- Recent Sales Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="bg-light text-center rounded p-4">
-        <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0">Recent Salse</h6>
-            <a href="">Show All</a>
-        </div>
-        <div class="table-responsive">
-            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                <thead>
-                    <tr class="text-dark">
-                        <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Invoice</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox"></td>
-                        <td>01 Jan 2045</td>
-                        <td>INV-0123</td>
-                        <td>Jhon Doe</td>
-                        <td>$123</td>
-                        <td>Paid</td>
-                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<!-- Recent Sales End -->
-
-
-<!-- Widgets Start -->
-<div class="container-fluid pt-4 px-4">
-    <div class="row g-4">
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-2">
-                    <h6 class="mb-0">Messages</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="<?= base_url() ?>backend/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="<?= base_url() ?>backend/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-3">
-                    <img class="rounded-circle flex-shrink-0" src="<?= base_url() ?>backend/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center pt-3">
-                    <img class="rounded-circle flex-shrink-0" src="<?= base_url() ?>backend/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <small>15 minutes ago</small>
-                        </div>
-                        <span>Short message goes here...</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">Calender</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div id="calender"></div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-xl-4">
-            <div class="h-100 bg-light rounded p-4">
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h6 class="mb-0">To Do List</h6>
-                    <a href="">Show All</a>
-                </div>
-                <div class="d-flex mb-2">
-                    <input class="form-control bg-transparent" type="text" placeholder="Enter task">
-                    <button type="button" class="btn btn-primary ms-2">Add</button>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox" checked>
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span><del>Short task goes here...</del></span>
-                            <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center border-bottom py-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center pt-2">
-                    <input class="form-check-input m-0" type="checkbox">
-                    <div class="w-100 ms-3">
-                        <div class="d-flex w-100 align-items-center justify-content-between">
-                            <span>Short task goes here...</span>
-                            <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Widgets End -->
