@@ -18,4 +18,8 @@
   <!-- main css -->
   <link rel="stylesheet" href="<?= base_url() ?>royal-master/css/style.css">
   <link rel="stylesheet" href="<?= base_url() ?>royal-master/css/responsive.css">
+
+  <!-- rating -->
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/rating/') ?>css/star-rating.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/rating/') ?>css/bootstrap.css">
 </head>

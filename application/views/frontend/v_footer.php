@@ -98,6 +98,22 @@
 <script src="<?= base_url() ?>royal-master/vendors/lightbox/simpleLightbox.min.js"></script>
 <script src="<?= base_url() ?>royal-master/js/custom.js"></script>
 
+<!-- rating -->
+<script type="text/javascript" src="<?= base_url('assets/rating/') ?>js/star-rating.js"></script>
+<script type="text/javascript" src="<?= base_url('assets/rating/') ?>js/bootstrap.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var $inp = $('.rating-input');
+        $inp.rating({
+            min: 0,
+            max: 5,
+            step: 1,
+            size: 'sm',
+            showClear: false
+        });
+    });
+</script>
+
 <script>
     console.log = function() {}
     $("#tiket").on('change', function() {
