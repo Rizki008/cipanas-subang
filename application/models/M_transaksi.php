@@ -4,6 +4,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_transaksi extends CI_Model
 {
+    //jumlah akumulasi
+    public function tot_tiket()
+    {
+        $this->db->select_sum('qty');
+        return $this->db->get('detail_pemesanan')->num_rows();
+    }
+
+    public function tot_uang()
+    {
+        $this->db->select_sum('total');
+        $this->db->from('pemesanan');
+        return $this->db->get()->num_rows();
+    }
+
+    public function tot_wisatawan()
+    {
+        return $this->db->get('wisatawan')->num_rows();
+    }
+
+    public function tot_boking()
+    {
+        $this->db->where('status_pemesanan=0');
+        return $this->db->get('pemesanan')->num_rows();
+    }
 
     //informasi pesanan
     public function masuk()
