@@ -24,7 +24,7 @@
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/login') ?>">Login/Register</a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('pemesanan') ?>">Pesanan</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><?= $this->session->userdata('nama_user'); ?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><?= $this->session->userdata('nama_wisatawan'); ?></a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/logout') ?>">Logout</a></li>
                     <?php } ?>
                     <!-- <li class="nav-item submenu dropdown">
