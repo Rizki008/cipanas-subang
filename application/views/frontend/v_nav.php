@@ -9,7 +9,7 @@
         ?>
         <nav class="navbar navbar-expand-lg navbar-light">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="<?= base_url() ?>"><img src="<?= base_url() ?>royal-master/image/Logo.png" alt=""></a>
+            <a class="navbar-brand logo_h" href="<?= base_url() ?>"><img src="<?= base_url() ?>royal-master/image/logobaru.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -18,14 +18,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                 <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('pembelian') ?>">Keranjang Booking [<?= $jml_item ?>]</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="<?= base_url() ?>">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('pembelian') ?>">Keranjang Pemesanan [<?= $jml_item ?>]</a></li>
                     <?php if ($this->session->userdata('username') == "") { ?>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/login') ?>">Login/Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/login') ?>">Masuk/Daftar</a></li>
                     <?php } else { ?>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('pemesanan') ?>">Pesanan</a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><?= $this->session->userdata('nama_wisatawan'); ?></a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/logout') ?>">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('pelanggan/logout') ?>">Keluar</a></li>
                     <?php } ?>
                     <!-- <li class="nav-item submenu dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
