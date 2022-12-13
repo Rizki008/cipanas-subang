@@ -69,22 +69,22 @@
             <div class="col-lg-4 col-md-6">
                 <div class="facilities_item">
                     <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Tempat Makan</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                    <p>Terdapat Tempat Makan Ditempat dan Bisa membeli Menu Makanan Yang Tersedia</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-bicycle"></i>Sports CLub</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                    <h4 class="sec_h4"><i class="lnr lnr-bicycle"></i>Tempat Perkir</h4>
+                    <p>Terdapat tempat parkir untuk kendaraan roda empat dan roda dua, untuk Tempat Perkir luas dan aman</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-shirt"></i>Swimming Pool</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
+                    <h4 class="sec_h4"><i class="lnr lnr-shirt"></i>Kolam Cipanas</h4>
+                    <p>Terdapat 5 Kolam Air panas dari level terendah sampai level terpanas</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <!-- <div class="col-lg-4 col-md-6">
                 <div class="facilities_item">
                     <h4 class="sec_h4"><i class="lnr lnr-car"></i>Rent a Car</h4>
                     <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
@@ -101,7 +101,7 @@
                     <h4 class="sec_h4"><i class="lnr lnr-coffee-cup"></i>Bar</h4>
                     <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
