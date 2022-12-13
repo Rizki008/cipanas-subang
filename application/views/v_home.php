@@ -43,6 +43,7 @@
                         <a href="#">
                             <h4 class="sec_h4"><?= $value->nama_tiket ?></h4>
                         </a>
+                        <p><?= $value->deskripsi_tiket ?></p>
                         <h5>Rp <?= number_format($value->harga_tiket), 0 ?>
                             <!-- <small>/night</small> -->
                         </h5>
