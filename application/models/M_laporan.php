@@ -14,7 +14,7 @@ class M_laporan extends CI_Model
         $this->db->where('DAY(pemesanan.tgl_pemesanan)', $tanggal);
         $this->db->where('MONTH(pemesanan.tgl_pemesanan)', $bulan);
         $this->db->where('YEAR(pemesanan.tgl_pemesanan)', $tahun);
-        $this->db->where('status_pemesanan=1');
+        // $this->db->where('status_pemesanan=1');
         $this->db->order_by('qty', 'desc');
         return $this->db->get()->result();
     }
@@ -26,7 +26,7 @@ class M_laporan extends CI_Model
         $this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
         $this->db->where('MONTH(pemesanan.tgl_pemesanan)', $bulan);
         $this->db->where('YEAR(pemesanan.tgl_pemesanan)', $tahun);
-        $this->db->where('status_pemesanan=1');
+        // $this->db->where('status_pemesanan=1');
         $this->db->order_by('qty', 'desc');
         return $this->db->get()->result();
     }
@@ -37,7 +37,7 @@ class M_laporan extends CI_Model
         $this->db->join('pemesanan', 'detail_pemesanan.id_pemesanan = pemesanan.id_pemesanan', 'left');
         $this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
         $this->db->where('YEAR(pemesanan.tgl_pemesanan)', $tahun);
-        $this->db->where('status_pemesanan=1');
+        // $this->db->where('status_pemesanan=1');
         $this->db->order_by('qty', 'desc');
         return $this->db->get()->result();
     }
