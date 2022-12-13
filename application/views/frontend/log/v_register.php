@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login 05</title>
+    <title>Daftar Akun</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">Registrasi Pelanggan</h2>
+                    <h2 class="heading-section">Daftar Pelanggan</h2>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -29,7 +29,7 @@
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h3 class="mb-4">Sign In</h3>
+                                    <h3 class="mb-4">Daftar Akun</h3>
                                 </div>
                                 <div class="w-100">
                                     <p class="social-media d-flex justify-content-end">
@@ -94,7 +94,7 @@
                                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Registrasi</button>
+                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Daftar</button>
                                 </div>
                                 <!-- <div class="form-group d-md-flex">
                                     <div class="w-50 text-left">
@@ -108,7 +108,7 @@
                                     </div>
                                 </div> -->
                             </form>
-                            <p class="text-center">Sudah Punya akun? <a data-toggle="tab" href="<?= base_url('pelanggan/login') ?>">Login</a></p>
+                            <p class="text-center">Sudah Punya akun? <a data-toggle="tab" href="<?= base_url('pelanggan/login') ?>">Masuk</a></p>
                         </div>
                     </div>
                 </div>

@@ -3,10 +3,10 @@
     <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
     <div class="container">
         <div class="page-cover text-center">
-            <h2 class="page-cover-tittle f_48">Elements</h2>
+            <h2 class="page-cover-tittle f_48">Pemesanan</h2>
             <ol class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li class="active">Elements</li>
+                <li><a href="index.html">Beranda</a></li>
+                <li class="active">Pemesanan</li>
             </ol>
         </div>
     </div>
@@ -17,7 +17,7 @@
 <div class="whole-wrap">
     <div class="container">
         <div class="section-top-border">
-            <h3 class="mb-30 title_color">Table</h3>
+            <h3 class="mb-30 title_color">Pemesanan</h3>
             <div class="progress-table-wrap">
                 <?php echo form_open('pembelian/update') ?>
                 <div class="progress-table">
@@ -28,7 +28,7 @@
                         <div class="percentage">Tipe Tiket</div>
                         <div class="percentage">Jumlah Tiket</div>
                         <div class="percentage">Total Harga Tiket</div>
-                        <div class="percentage">Action</div>
+                        <div class="percentage">Aksi</div>
                     </div>
                     <?php $i = 1; ?>
                     <?php $total_berat = 0;
@@ -59,7 +59,7 @@
                             </div>
                             <div class="percentage">
                                 <a href="<?= base_url('pembelian/delete/') . $items['rowid'] ?>" class="btn btn-danger btn-sm">Hapus</a>&nbsp;
-                                <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                                <button type="submit" class="btn btn-warning btn-sm">Perbarui</button>
                             </div>
                         </div>
                         <?php $i++; ?>

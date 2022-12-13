@@ -5,7 +5,7 @@
         <div class="page-cover text-center">
             <h2 class="page-cover-tittle f_48"><?= $title ?></h2>
             <ol class="breadcrumb">
-                <li><a href="<?= base_url() ?>">Home</a></li>
+                <li><a href="<?= base_url() ?>">Beranda</a></li>
                 <li class="active"><?= $title ?></li>
             </ol>
         </div>
@@ -22,12 +22,12 @@
                 <div class="progress-table">
                     <div class="table-head">
                         <div class="serial">#</div>
-                        <div class="country">No Order</div>&nbsp;&nbsp;
+                        <div class="country">No Pesan</div>&nbsp;&nbsp;
                         <div class="visit">Harga Tiket</div>
                         <div class="percentage">Tanggal Pemesanan</div>
                         <div class="percentage">Tanggal Booking</div>
                         <!-- <div class="percentage">Jumlah Tiket</div> -->
-                        <div class="percentage">Action</div>
+                        <div class="percentage">Aksi</div>
                     </div>
                     <?php $no = 1;
                     foreach ($belum_bayar as $key => $value) { ?>

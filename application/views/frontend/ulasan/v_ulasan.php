@@ -5,7 +5,7 @@
         <div class="page-cover text-center">
             <h2 class="page-cover-tittle f_48"><?= $title ?></h2>
             <ol class="breadcrumb">
-                <li><a href="<?= base_url() ?>">Home</a></li>
+                <li><a href="<?= base_url() ?>">Beranda</a></li>
                 <li class="active"><?= $title ?></li>
             </ol>
         </div>
@@ -24,7 +24,7 @@
                         <div class="serial">#</div>
                         <div class="visit">Nama Tiket</div>
                         <div class="country">Harga Tiket</div>
-                        <div class="percentage">Tanggal Booking</div>
+                        <div class="percentage">Tanggal pemesanan</div>
                         <div class="percentage">Ulasan</div>
                     </div>
                     <?php $no = 1;
