@@ -20,6 +20,7 @@ class Admin extends CI_Controller
             'tot_tiket' => $this->m_transaksi->tot_tiket(),
             'tot_wisatawan' => $this->m_transaksi->tot_wisatawan(),
             'grafik' => $this->m_transaksi->grafik(),
+            'grafik_kelamin' => $this->m_transaksi->grafik_kelamin(),
             'isi' => 'v_admin'
         );
         $this->load->view('backend/v_wrapper', $data, FALSE);

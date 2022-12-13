@@ -103,4 +103,9 @@ class M_transaksi extends CI_Model
         $this->db->order_by('qty', 'desc');
         return $this->db->get()->result();
     }
+
+    public function grafik_kelamin()
+    {
+        return $this->db->query("SELECT SUM(qty) as hasil, jk FROM detail_pemesanan JOIN pemesanan ON detail_pemesanan.id_pemesanan=pemesanan.id_pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.jk")->result();
+    }
 }
