@@ -25,17 +25,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-7 col-lg-5">
                     <div class="wrap">
-                        <div class="img" style="background-image: url(<?= base_url() ?>login/images/bg-1.jpg);"></div>
+                        <div class="img" style="background-image: url(<?= base_url() ?>login/images/background.jpg);"></div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
                                     <h3 class="mb-4">Daftar Akun</h3>
                                 </div>
                                 <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
+                                    <!-- <p class="social-media d-flex justify-content-end">
                                         <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
                                         <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
+                                    </p> -->
                                 </div>
                             </div>
                             <?php
@@ -108,7 +108,7 @@
                                     </div>
                                 </div> -->
                             </form>
-                            <p class="text-center">Sudah Punya akun? <a data-toggle="tab" href="<?= base_url('pelanggan/login') ?>">Masuk</a></p>
+                            <p class="text-center">Sudah Punya akun? <a href="<?= base_url('pelanggan/login') ?>">Masuk</a></p>
                         </div>
                     </div>
                 </div>
