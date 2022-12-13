@@ -9,7 +9,7 @@
                 </div>'
             );
 
-            echo form_open('tiket/edit/' . $tiket->id_tiket) ?>
+            echo form_open_multipart('tiket/edit/' . $tiket->id_tiket) ?>
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4"><?= $title ?> &nbsp; <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i>Tambah Tiket</button></h6>
                 <div class="form-floating mb-3">
@@ -29,6 +29,13 @@
                         <option value="3">Tiga</option>
                     </select>
                     <label for="floatingSelect">Pilih Tipe Tiket</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar Tiket">
+                    <label for="preview_gambar">Gambar Tiket</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <img src="<?= base_url('assets/tiket/' . $tiket->gambar) ?>" id="gambar_load" width="400px">
                 </div>
                 <div class="form-floating">
                     <textarea class="form-control" name="deskripsi_tiket" placeholder="Deskripsi Tiket" id="floatingTextarea" style="height: 150px;"><?= $tiket->deskripsi_tiket ?></textarea>

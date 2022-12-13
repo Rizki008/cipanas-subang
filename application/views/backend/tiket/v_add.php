@@ -9,7 +9,13 @@
                 </div>'
             );
 
-            echo form_open('tiket/add') ?>
+            if (isset($error_upload)) {
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fa fa-exclamation-circle me-2"></i>' . $error_upload . '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            }
+
+            echo form_open_multipart('tiket/add') ?>
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4"><?= $title ?> &nbsp; <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-plus-circle"></i>Tambah Tiket</button></h6>
                 <div class="form-floating mb-3">
@@ -28,6 +34,10 @@
                         <option value="3">Three</option>
                     </select>
                     <label for="floatingSelect">Pilih Tipe Tiket</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar Tiket">
+                    <label for="preview_gambar">Gambar Tiket</label>
                 </div>
                 <div class="form-floating">
                     <textarea class="form-control" name="deskripsi_tiket" placeholder="Deskripsi Tiket" id="floatingTextarea" style="height: 150px;"><?= set_value('deskripsi_tiket') ?></textarea>
