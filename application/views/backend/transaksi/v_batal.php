@@ -2,7 +2,7 @@
     <div class="row g-4">
         <div class="col-sm-12 col-xl-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Accented Table</h6>
+                <h6 class="mb-4">Batal Pemesanan</h6>
                 <table class="table table-striped">
                     <thead>
                         <tr>

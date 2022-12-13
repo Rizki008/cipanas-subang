@@ -24,9 +24,9 @@
                     <select class="form-select" id="floatingSelect" name="tipe_tiket" value="<?= $tiket->tipe_tiket ?>" aria-label="Floating label select example">
                         <option selected value="<?= $tiket->id_tiket ?>"><?= $tiket->tipe_tiket ?></option>
                         <!-- <option selected>Tipe Tiket</option> -->
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">Satu</option>
+                        <option value="2">Dua</option>
+                        <option value="3">Tiga</option>
                     </select>
                     <label for="floatingSelect">Pilih Tipe Tiket</label>
                 </div>

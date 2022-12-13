@@ -34,10 +34,10 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemesanan</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="<?= base_url('transaksi/masuk') ?>" class="dropdown-item">Booking Masuk</a>
-                            <a href="<?= base_url('transaksi/proses') ?>" class="dropdown-item">Booking Proses</a>
-                            <a href="<?= base_url('transaksi/selesai') ?>" class="dropdown-item">Booking Selesai</a>
-                            <a href="<?= base_url('transaksi/batal') ?>" class="dropdown-item">Booking Batal</a>
+                            <a href="<?= base_url('transaksi/masuk') ?>" class="dropdown-item">Pemesanan Masuk</a>
+                            <a href="<?= base_url('transaksi/proses') ?>" class="dropdown-item">Pemesanan Proses</a>
+                            <a href="<?= base_url('transaksi/selesai') ?>" class="dropdown-item">Pemesanan Selesai</a>
+                            <a href="<?= base_url('transaksi/batal') ?>" class="dropdown-item">Pemesanan Batal</a>
                         </div>
                     </div>
                 </div>
