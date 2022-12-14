@@ -22,7 +22,12 @@
                                 <td><?= $value->nama_admin ?></td>
                                 <td><?= $value->username_admin ?></td>
                                 <td><?= $value->password_admin ?></td>
-                                <td><?= $value->level_admin ?></td>
+                                <td><?php if ($value->level_admin == 1) { ?>
+                                        <div class="p-2 mb-2 bg-primary text-white">Admin</div>
+                                    <?php } elseif ($value->level_admin == 2) { ?>
+                                        <div class="p-2 mb-2 bg-success text-white">Pemilik</div>
+                                    <?php } ?>
+                                </td>
                                 <td>
                                     <a href="<?= base_url('user/edit/' . $value->id_admin) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a>
                                     <a href="<?= base_url('user/hapus/' . $value->id_admin) ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
