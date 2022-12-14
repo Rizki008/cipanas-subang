@@ -108,4 +108,47 @@ class M_transaksi extends CI_Model
     {
         return $this->db->query("SELECT SUM(qty) as hasil, jk FROM detail_pemesanan JOIN pemesanan ON detail_pemesanan.id_pemesanan=pemesanan.id_pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.jk")->result();
     }
+
+    //TRANSAKSI LANGSUNG
+    public function produk()
+    {
+        $this->db->select('*');
+        $this->db->from('tiket');
+        $this->db->join('promo', 'promo.id_tiket = tiket.id_tiket', 'left');
+        // $this->db->where('stock>=1');
+        $this->db->order_by('tiket.id_tiket', 'desc');
+        $this->db->limit(6);
+        return $this->db->get()->result();
+    }
+    public function simpan_transaksi_langsung($data)
+    {
+        $this->db->insert('transaksi_langsung', $data);
+    }
+    public function simpan_rinci_langsung($data_rinci_langsung)
+    {
+        $this->db->insert('rinci_langsung', $data_rinci_langsung);
+    }
+    public function update_order_langsung($data)
+    {
+        $this->db->where('id_pesan', $data['id_pesan']);
+        $this->db->update('transaksi_langsung', $data);
+    }
+    public function pesanan_langsung()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi_langsung');
+        // $this->db->join('rinci_langsung', 'transaksi_langsung.no_jual=rinci_langsung.no_jual', 'left');
+        $this->db->where('status_beli=0');
+        $this->db->order_by('id_pesan', 'desc');
+        return $this->db->get()->result();
+    }
+    public function pesanan_langsung_selesai()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi_langsung');
+        // $this->db->join('rinci_langsung', 'transaksi_langsung.no_jual=rinci_langsung.no_jual', 'left');
+        $this->db->where('status_beli=1');
+        $this->db->order_by('id_pesan', 'desc');
+        return $this->db->get()->result();
+    }
 }
