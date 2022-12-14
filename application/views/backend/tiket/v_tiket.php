@@ -9,7 +9,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nama Tiket</th>
                             <th scope="col">Harga Tiket</th>
-                            <th scope="col">TIpe TIket</th>
+                            <!-- <th scope="col">TIpe TIket</th> -->
                             <th scope="col">Deskripsi</th>
                             <th scope="col">Setting</th>
                         </tr>
@@ -21,7 +21,7 @@
                                 <th scope="row"><?= $no++ ?></th>
                                 <td><?= $value->nama_tiket ?></td>
                                 <td>Rp.<?= number_format($value->harga_tiket, 0) ?></td>
-                                <td><?= $value->tipe_tiket ?></td>
+                                <!-- <td><?= $value->tipe_tiket ?></td> -->
                                 <td><?= $value->deskripsi_tiket ?></td>
                                 <td>
                                     <a href="<?= base_url('tiket/edit/' . $value->id_tiket) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a>
