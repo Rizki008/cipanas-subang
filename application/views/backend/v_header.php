@@ -28,8 +28,9 @@
                         </div>
                     </div> -->
                     <a href="<?= base_url('tiket') ?>" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tiket</a>
-                    <a href="<?= base_url('user') ?>" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>User</a>
-                    <a href="<?= base_url('promo') ?>" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Promo</a>
+                    <a href="<?= base_url('user') ?>" class="nav-item nav-link"><i class="fa fa-user me-2"></i>User</a>
+                    <a href="<?= base_url('user/pelanggan') ?>" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Wisatawan</a>
+                    <a href="<?= base_url('promo') ?>" class="nav-item nav-link"><i class="fa fa-percent me-2"></i>Promo</a>
                     <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemesanan</a>
