@@ -36,4 +36,12 @@ class M_user extends CI_Model
         $this->db->where('id_admin', $data['id_admin']);
         $this->db->delete('admin');
     }
+
+    public function pelanggan()
+    {
+        $this->db->select('*');
+        $this->db->from('wisatawan');
+        $this->db->order_by('id_wisatawan', 'desc');
+        return $this->db->get()->result();
+    }
 }
