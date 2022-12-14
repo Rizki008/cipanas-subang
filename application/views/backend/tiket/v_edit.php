@@ -20,16 +20,16 @@
                     <input type="number" class="form-control" name="harga_tiket" value="<?= $tiket->harga_tiket ?>" id="floatingPassword" placeholder="Harga Tiket">
                     <label for="floatingPassword">Harga Tiket</label>
                 </div>
-                <div class="form-floating mb-3">
+                <!-- <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" name="tipe_tiket" value="<?= $tiket->tipe_tiket ?>" aria-label="Floating label select example">
-                        <option selected value="<?= $tiket->id_tiket ?>"><?= $tiket->tipe_tiket ?></option>
-                        <!-- <option selected>Tipe Tiket</option> -->
-                        <option value="1">Satu</option>
+                        <option selected value="<?= $tiket->id_tiket ?>"><?= $tiket->tipe_tiket ?></option> -->
+                <!-- <option selected>Tipe Tiket</option> -->
+                <!-- <option value="1">Satu</option>
                         <option value="2">Dua</option>
                         <option value="3">Tiga</option>
                     </select>
                     <label for="floatingSelect">Pilih Tipe Tiket</label>
-                </div>
+                </div> -->
                 <div class="form-floating mb-3">
                     <input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar Tiket">
                     <label for="preview_gambar">Gambar Tiket</label>
