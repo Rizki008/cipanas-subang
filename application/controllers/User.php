@@ -97,4 +97,14 @@ class user extends CI_Controller
         $this->session->set_flashdata('pesan', 'Data user Berhasil Ditambahkan');
         redirect('user', 'refresh');
     }
+
+    public function pelanggan()
+    {
+        $data = array(
+            'title' => 'Data Wisatawan',
+            'pelanggan' => $this->m_user->pelanggan(),
+            'isi' => 'backend/pelanggan/v_pelanggan'
+        );
+        $this->load->view('backend/v_wrapper', $data, FALSE);
+    }
 }
