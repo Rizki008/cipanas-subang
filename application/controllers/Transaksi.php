@@ -75,4 +75,74 @@ class Transaksi extends CI_Controller
         );
         $this->load->view('backend/v_wrapper', $data, FALSE);
     }
+
+    //TRANSAKSI LANGSUNG DI TEMPAT
+    public function transaksi_langsung()
+    {
+        $data = array(
+            'title' => 'Transaksi Langsung',
+            'produk' => $this->m_transaksi->produk(),
+            'pesanan_langsung' => $this->m_transaksi->pesanan_langsung(),
+            'pesanan_langsung_selesai' => $this->m_transaksi->pesanan_langsung_selesai(),
+            'isi' => 'backend/transaksi_langsung/v_transaksi'
+        );
+        $this->load->view('backend/v_wrapper', $data, FALSE);
+    }
+
+    public function pesan()
+    {
+        $id_tiket = $this->input->post('id_tiket');
+        $data = array(
+            'id' => $this->input->post('id'),
+            'qty' => $this->input->post('qty'),
+            'name' => $this->input->post('name'),
+            'price' => $this->input->post('price'),
+        );
+        $this->cart->insert($data);
+        $this->session->set_flashdata('pesan', 'Berhasil');
+        redirect('transaksi/transaksi_langsung/' . $id_tiket);
+    }
+
+    public function delete($rowid)
+    {
+        $this->cart->remove($rowid);
+        redirect('transaksi/transaksi_langsung');
+    }
+
+    public function checkout()
+    {
+        // $id_produk = $this->input->post('id_produk');
+        $data = array(
+            'no_jual' => $this->input->post('no_jual'),
+            'tgl_beli' => date('Y-m-d'),
+            'total_harga' => $this->input->post('total_harga'),
+            'status_beli' => '0',
+        );
+        $this->m_transaksi->simpan_transaksi_langsung($data);
+        //simppan belanja langsung ke rinci
+        $i = 1;
+        foreach ($this->cart->contents() as $item) {
+            $data_rinci_langsung = array(
+                'no_jual' => $this->input->post('no_jual'),
+                'id_tiket' => $item['id'],
+                'tgl_jual' => date('Y-m-d'),
+                'qty' => $this->input->post('qty' . $i++)
+            );
+            $this->m_transaksi->simpan_rinci_langsung($data_rinci_langsung);
+        }
+        $this->cart->destroy();
+        redirect('transaksi/transaksi_langsung');
+    }
+
+    public function bayar($id_pesan)
+    {
+        $data = array(
+            'id_pesan' => $id_pesan,
+            'Jumlah_bayar' => $this->input->post('Jumlah_bayar'),
+            'status_beli' => 1
+        );
+        $this->m_transaksi->update_order_langsung($data);
+        $this->session->set_flashdata('pesan', 'Pesanan Berhasil Di Batalkan');
+        redirect('transaksi/transaksi_langsung');
+    }
 }
