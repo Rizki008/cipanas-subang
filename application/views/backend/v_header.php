@@ -31,7 +31,7 @@
                     <a href="<?= base_url('user') ?>" class="nav-item nav-link"><i class="fa fa-user me-2"></i>User</a>
                     <a href="<?= base_url('user/pelanggan') ?>" class="nav-item nav-link"><i class="fa fa-user me-2"></i>Wisatawan</a>
                     <a href="<?= base_url('promo') ?>" class="nav-item nav-link"><i class="fa fa-percent me-2"></i>Promo</a>
-                    <!-- <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
+                    <a href="<?= base_url('transaksi/transaksi_langsung') ?>" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Beli Ditempat</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemesanan</a>
                         <div class="dropdown-menu bg-transparent border-0">
