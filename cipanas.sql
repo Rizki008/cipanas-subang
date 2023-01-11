@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2022 at 07:21 PM
+-- Generation Time: Dec 14, 2022 at 05:25 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -63,8 +63,7 @@ CREATE TABLE `detail_pemesanan` (
 --
 
 INSERT INTO `detail_pemesanan` (`id_detail_pemesanan`, `id_tiket`, `id_pemesanan`, `qty`) VALUES
-('AyirH', 2, '20221120DJBSELF1', 1),
-('BWSj7', 1, '20221120DJBSELF1', 1);
+('GA6F4', 1, '20221213EXS1TQVC', 2);
 
 -- --------------------------------------------------------
 
@@ -103,7 +102,7 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisatawan`, `tgl_pemesanan`, `tgl_booking`, `total`, `metode_bayar`, `status_pembayaran`, `status_pemesanan`, `create_update`) VALUES
-('20221120DJBSELF1', 1, '2022-11-20', '2022-11-24', '40000', '2', 0, 2, NULL);
+('20221213EXS1TQVC', 1, '2022-12-13', '2022-12-21', '50000', '1', 0, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -124,8 +123,29 @@ CREATE TABLE `promo` (
 --
 
 INSERT INTO `promo` (`id_promo`, `id_tiket`, `tgl_promo`, `ket`, `range`) VALUES
-(1, 1, '2022-11-11', '0', 0),
-(2, 2, '2022-11-11', '0', 0);
+(1, 1, '2022-12-13', '0', 0),
+(2, 2, '2022-12-13', '0', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rinci_langsung`
+--
+
+CREATE TABLE `rinci_langsung` (
+  `id_rinci_langsung` int(11) NOT NULL,
+  `no_jual` varchar(50) DEFAULT NULL,
+  `id_tiket` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `tgl_jual` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rinci_langsung`
+--
+
+INSERT INTO `rinci_langsung` (`id_rinci_langsung`, `no_jual`, `id_tiket`, `qty`, `tgl_jual`) VALUES
+(1, '202212143128', 1, 1, '2022-12-14');
 
 -- --------------------------------------------------------
 
@@ -147,8 +167,30 @@ CREATE TABLE `tiket` (
 --
 
 INSERT INTO `tiket` (`id_tiket`, `nama_tiket`, `deskripsi_tiket`, `harga_tiket`, `tipe_tiket`, `gambar`) VALUES
-(1, 'tiket bundling', 'tiket  bundling dengan kekasih', '15000', '3', 'indonesia.png'),
-(2, 'tiket get one free one', 'tiket beli satu depat  satu', '25000', '3', 'kathmandu.png');
+(1, 'tiket bundling', 'tiket untuk berudua', '25000', '3', 'tiket4.jpg'),
+(2, 'tiket get one free one', 'Beli satu gratis satu tiket', '50000', '2', 'tiket5.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi_langsung`
+--
+
+CREATE TABLE `transaksi_langsung` (
+  `id_pesan` int(11) NOT NULL,
+  `no_jual` varchar(50) DEFAULT NULL,
+  `tgl_beli` date DEFAULT NULL,
+  `total_harga` int(11) DEFAULT NULL,
+  `jumlah_bayar` int(11) DEFAULT NULL,
+  `status_beli` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi_langsung`
+--
+
+INSERT INTO `transaksi_langsung` (`id_pesan`, `no_jual`, `tgl_beli`, `total_harga`, `jumlah_bayar`, `status_beli`) VALUES
+(1, '202212143128', '2022-12-14', 25000, 25000, 1);
 
 -- --------------------------------------------------------
 
@@ -172,8 +214,7 @@ CREATE TABLE `ulasan` (
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `id_tiket`, `id_detail_pemesanan`, `tgl_ulasan`, `isi_ulasan`, `rating`, `time_ulasan`, `status_ulasan`) VALUES
-(1, 2, 'AyirH', '2022-11-20', 'bagus', '3', '0000-00-00 00:00:00', 1),
-(2, 1, 'BWSj7', '2022-11-20', 'sip', '5', '0000-00-00 00:00:00', 1);
+(1, 1, 'GA6F4', '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1);
 
 -- --------------------------------------------------------
 
@@ -236,10 +277,22 @@ ALTER TABLE `promo`
   ADD PRIMARY KEY (`id_promo`);
 
 --
+-- Indexes for table `rinci_langsung`
+--
+ALTER TABLE `rinci_langsung`
+  ADD PRIMARY KEY (`id_rinci_langsung`);
+
+--
 -- Indexes for table `tiket`
 --
 ALTER TABLE `tiket`
   ADD PRIMARY KEY (`id_tiket`);
+
+--
+-- Indexes for table `transaksi_langsung`
+--
+ALTER TABLE `transaksi_langsung`
+  ADD PRIMARY KEY (`id_pesan`);
 
 --
 -- Indexes for table `ulasan`
@@ -276,16 +329,28 @@ ALTER TABLE `promo`
   MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `rinci_langsung`
+--
+ALTER TABLE `rinci_langsung`
+  MODIFY `id_rinci_langsung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
   MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `transaksi_langsung`
+--
+ALTER TABLE `transaksi_langsung`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `wisatawan`
