@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2022 at 05:25 AM
+-- Generation Time: Jan 12, 2023 at 07:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `nama_admin`, `alamat_admin`, `no_tlpn_admin`, `username_admin`, `password_admin`, `level_admin`) VALUES
-(1, 'adini', 'cilimus', '0891929102912', 'adini', '12341234', 1),
+(1, 'adini', 'cilimus', '0891929102912', 'admin', '12341234', 1),
 (2, 'pemilik', 'subang', '089192819281', 'pemilik', 'pemilik', 2);
 
 -- --------------------------------------------------------
@@ -63,7 +63,9 @@ CREATE TABLE `detail_pemesanan` (
 --
 
 INSERT INTO `detail_pemesanan` (`id_detail_pemesanan`, `id_tiket`, `id_pemesanan`, `qty`) VALUES
-('GA6F4', 1, '20221213EXS1TQVC', 2);
+('GA6F4', 1, '20221213EXS1TQVC', 2),
+('lGwer', 1, '20230111R2WYFEMF', 1),
+('Yjb9m', 2, '20230111AIOXCURY', 1);
 
 -- --------------------------------------------------------
 
@@ -78,6 +80,13 @@ CREATE TABLE `pembayaran` (
   `bukti_bayar` text DEFAULT NULL,
   `upload_time` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pembayaran`, `id_pemesanan`, `atas_nama`, `bukti_bayar`, `upload_time`) VALUES
+(1, '20230111AIOXCURY', 'andi', 'Screenshot_(86).png', NULL);
 
 -- --------------------------------------------------------
 
@@ -102,7 +111,9 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisatawan`, `tgl_pemesanan`, `tgl_booking`, `total`, `metode_bayar`, `status_pembayaran`, `status_pemesanan`, `create_update`) VALUES
-('20221213EXS1TQVC', 1, '2022-12-13', '2022-12-21', '50000', '1', 0, 2, NULL);
+('20221213EXS1TQVC', 1, '2022-12-13', '2022-12-21', '50000', '1', 0, 2, NULL),
+('20230111AIOXCURY', 1, '2023-01-11', '2023-01-11', '50000', '2', 1, 2, NULL),
+('20230111R2WYFEMF', 1, '2023-01-11', '2023-01-12', '25000', '1', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -214,7 +225,9 @@ CREATE TABLE `ulasan` (
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `id_tiket`, `id_detail_pemesanan`, `tgl_ulasan`, `isi_ulasan`, `rating`, `time_ulasan`, `status_ulasan`) VALUES
-(1, 1, 'GA6F4', '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1);
+(1, 1, 'GA6F4', '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1),
+(2, 1, 'lGwer', '0000-00-00', '0', '0', '2023-01-11 07:12:06', 0),
+(3, 2, 'Yjb9m', '0000-00-00', '0', '0', '2023-01-11 07:12:29', 0);
 
 -- --------------------------------------------------------
 
@@ -320,7 +333,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `promo`
@@ -350,7 +363,7 @@ ALTER TABLE `transaksi_langsung`
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wisatawan`
