@@ -124,4 +124,25 @@ class M_pemesanan extends CI_Model
 		$this->db->where('pemesanan.id_pemesanan', $id_pemesanan);
 		return $this->db->get()->result();
 	}
+
+	public function total_pesanan()
+	{
+		$this->db->where('status_pemesanan=0');
+		return $this->db->get('pemesanan')->num_rows();
+	}
+	public function total_pesanan_proses()
+	{
+		$this->db->where('status_pemesanan=1');
+		return $this->db->get('pemesanan')->num_rows();
+	}
+	public function total_pesanan_selesai()
+	{
+		$this->db->where('status_pemesanan=2');
+		return $this->db->get('pemesanan')->num_rows();
+	}
+	public function total_pesanan_batal()
+	{
+		$this->db->where('status_pemesanan=3');
+		return $this->db->get('pemesanan')->num_rows();
+	}
 }
