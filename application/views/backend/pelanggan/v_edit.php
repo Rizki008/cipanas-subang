@@ -30,6 +30,7 @@
 								<p>Gratis 3 Tiket</p>
 							<?php } ?>
 						</option>
+						<option value="0">Gratis 0 Tiket</option>
 						<option value="1">Gratis 1 Tiket</option>
 						<option value="2">Gratis 2 Tiket</option>
 						<option value="3">Gratis 3 Tiket</option>
