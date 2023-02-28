@@ -108,4 +108,33 @@ class user extends CI_Controller
 		);
 		$this->load->view('backend/v_wrapper', $data, FALSE);
 	}
+
+
+	public function update_wisatawan($id_wisatawan = NULL)
+	{
+		$this->form_validation->set_rules('gratis_tiket', 'gratis tiket', 'required', array('required' => '%s Mohon untuk diisi'));
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = array(
+				'title' => 'Data User',
+				'user' => $this->m_user->detail_wisatawan($id_wisatawan),
+				'isi' => 'backend/pelanggan/v_edit'
+			);
+			$this->load->view('backend/v_wrapper', $data, FALSE);
+		} else {
+			$data = array(
+				'id_wisatawan' => $id_wisatawan,
+				'gratis_tiket' => $this->input->post('gratis_tiket'),
+			);
+			$this->m_user->update_gratis($data);
+			$this->session->set_flashdata('pesan', 'Data user Berhasil Ditambahkan');
+			redirect('user/pelanggan', 'refresh');
+		}
+		$data = array(
+			'title' => 'Data user',
+			'user' => $this->m_user->detail_wisatawan($id_wisatawan),
+			'isi' => 'backend/pelanggan/v_edit'
+		);
+		$this->load->view('backend/v_wrapper', $data, FALSE);
+	}
 }
