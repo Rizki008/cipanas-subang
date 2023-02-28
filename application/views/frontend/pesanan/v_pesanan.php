@@ -19,7 +19,11 @@
 		<div class="section-top-border">
 			<h3 class="mb-30 title_color"><?= $title ?></h3>
 			<?php foreach ($wisatawan as $key => $value) { ?>
-				<h4><span class="badge badge-warning">Selamat Anda Mendapatkan <?= $value->gratis_tiket ?> Gratis Tiket Masuk</span></h4>
+				<?php if ($value->gratis_tiket == 0) { ?>
+					<p>-</p>
+				<?php } else { ?>
+					<h4><span class="badge badge-warning">Selamat Anda Mendapatkan <?= $value->gratis_tiket ?> Gratis Tiket Masuk. Tiket Bisa Diambil Langsung ditempat.</span></h4>
+				<?php } ?>
 			<?php } ?>
 			<div class="progress-table-wrap">
 				<div class="progress-table">
