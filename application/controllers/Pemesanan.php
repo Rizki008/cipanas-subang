@@ -16,6 +16,7 @@ class Pemesanan extends CI_Controller
 			'title' => 'Pesanan Saya',
 			'pesanan' => $this->m_pemesanan->pesanan(),
 			'belum_bayar' => $this->m_pemesanan->belum_bayar(),
+			'wisatawan' => $this->m_pemesanan->pelanggan(),
 			'diproses' => $this->m_pemesanan->diproses(),
 			'selesai' => $this->m_pemesanan->selesai(),
 			'batal' => $this->m_pemesanan->batal(),
