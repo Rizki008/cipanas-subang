@@ -145,4 +145,13 @@ class M_pemesanan extends CI_Model
 		$this->db->where('status_pemesanan=3');
 		return $this->db->get('pemesanan')->num_rows();
 	}
+
+	public function pelanggan()
+	{
+		$this->db->select('*');
+		$this->db->from('wisatawan');
+		$this->db->where('id_wisatawan', $this->session->userdata('id_wisatawan'));
+		$this->db->order_by('id_wisatawan', 'desc');
+		return $this->db->get()->result();
+	}
 }
