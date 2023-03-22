@@ -74,14 +74,15 @@ class M_transaksi extends CI_Model
 
 	public function batal()
 	{
-		$this->db->select('*');
-		$this->db->from('pemesanan');
-		$this->db->join('detail_pemesanan', 'pemesanan.id_pemesanan = detail_pemesanan.id_pemesanan', 'left');
-		$this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
-		$this->db->where('status_pemesanan=3');
-		$this->db->order_by('pemesanan.id_pemesanan', 'desc');
-		$this->db->group_by('detail_pemesanan.id_pemesanan');
-		return $this->db->get()->result();
+		// $this->db->select('*');
+		// $this->db->from('pemesanan');
+		// $this->db->join('detail_pemesanan', 'pemesanan.id_pemesanan = detail_pemesanan.id_pemesanan', 'left');
+		// $this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
+		// // $this->db->where('status_pemesanan=3');
+		// $this->db->where('status_pemesanan=6');
+		// $this->db->order_by('pemesanan.id_pemesanan', 'desc');
+		// $this->db->group_by('detail_pemesanan.id_pemesanan');
+		return $this->db->query('SELECT * FROM pemesanan LEFT JOIN detail_pemesanan ON pemesanan.id_pemesanan=detail_pemesanan.id_pemesanan LEFT JOIN tiket ON detail_pemesanan.id_tiket=tiket.id_tiket WHERE  status_pemesanan IN(3,6) GROUP BY detail_pemesanan.id_pemesanan ORDER BY pemesanan.id_pemesanan DESC')->result();
 	}
 
 	public function detail_pesanan($id_pemesanan)
