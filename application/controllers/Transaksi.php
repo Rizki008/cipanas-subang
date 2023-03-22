@@ -76,6 +76,16 @@ class Transaksi extends CI_Controller
 		);
 		$this->load->view('backend/v_wrapper', $data, FALSE);
 	}
+	public function batalkan($id_pemesanan)
+	{
+		$data = array(
+			'id_pemesanan' => $id_pemesanan,
+			'status_pemesanan' => '6',
+		);
+		$this->m_pemesanan->update_status_pembayaran($data);
+		$this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
+		redirect('transaksi/batal');
+	}
 
 	//TRANSAKSI LANGSUNG DI TEMPAT
 	public function transaksi_langsung()
