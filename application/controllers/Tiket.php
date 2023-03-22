@@ -27,7 +27,7 @@ class Tiket extends CI_Controller
 	{
 		$this->form_validation->set_rules('nama_tiket', 'Nama Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 		$this->form_validation->set_rules('harga_tiket', 'Harga Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
-		// $this->form_validation->set_rules('tipe_tiket', 'Tipe Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
+		$this->form_validation->set_rules('tipe_tiket', 'Tipe Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 		$this->form_validation->set_rules('deskripsi_tiket', 'Deskripsi Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 
 
@@ -52,7 +52,8 @@ class Tiket extends CI_Controller
 				$data = array(
 					'nama_tiket' => $this->input->post('nama_tiket'),
 					'harga_tiket' => $this->input->post('harga_tiket'),
-					// 'tipe_tiket' => $this->input->post('tipe_tiket'),
+					'tipe_tiket' => $this->input->post('tipe_tiket'),
+					'jumlah' => $this->input->post('jumlah'),
 					'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -83,7 +84,7 @@ class Tiket extends CI_Controller
 	{
 		$this->form_validation->set_rules('nama_tiket', 'Nama Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 		$this->form_validation->set_rules('harga_tiket', 'Harga Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
-		// $this->form_validation->set_rules('tipe_tiket', 'Tipe Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
+		$this->form_validation->set_rules('tipe_tiket', 'Tipe Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 		$this->form_validation->set_rules('deskripsi_tiket', 'Deskripsi Tiket', 'required', array('required' => '%s Mohon untuk diisi'));
 
 
@@ -116,7 +117,8 @@ class Tiket extends CI_Controller
 					'id_tiket' => $id_tiket,
 					'nama_tiket' => $this->input->post('nama_tiket'),
 					'harga_tiket' => $this->input->post('harga_tiket'),
-					// 'tipe_tiket' => $this->input->post('tipe_tiket'),
+					'tipe_tiket' => $this->input->post('tipe_tiket'),
+					'jumlah' => $this->input->post('jumlah'),
 					'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -128,7 +130,8 @@ class Tiket extends CI_Controller
 				'id_tiket' => $id_tiket,
 				'nama_tiket' => $this->input->post('nama_tiket'),
 				'harga_tiket' => $this->input->post('harga_tiket'),
-				// 'tipe_tiket' => $this->input->post('tipe_tiket'),
+				'tipe_tiket' => $this->input->post('tipe_tiket'),
+				'jumlah' => $this->input->post('jumlah'),
 				'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 			);
 			$this->m_tiket->edit($data);
