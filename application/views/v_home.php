@@ -34,6 +34,7 @@
 					<input type="hidden" name="name" value="<?= $value->nama_tiket ?>">
 					<input type="hidden" name="price" value="<?= $value->harga_tiket - ($value->range / 100 * $value->harga_tiket) ?>">
 					<input type="hidden" name="type" value="<?= $value->tipe_tiket ?>">
+					<input type="hidden" name="jumlah" value="<?= $value->jumlah ?>">
 					<input type="hidden" name="qty" value="1">
 					<div class="accomodation_item text-center">
 						<div class="hotel_img">
@@ -43,7 +44,11 @@
 						<a href="#">
 							<h4 class="sec_h4"><?= $value->nama_tiket ?></h4>
 						</a>
-						<p><?= $value->deskripsi_tiket ?></p>
+						<p><?= $value->deskripsi_tiket ?> <?php if ($value->tipe_tiket == 1) { ?>
+								<?= $value->jumlah ?> orang
+							<?php } elseif ($value->tipe_tiket == 2) { ?>
+
+							<?php } ?></p>
 
 						<?php if ($value->range > 0) : ?>
 							<p>Harga Utama</p>
