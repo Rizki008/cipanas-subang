@@ -34,9 +34,9 @@
 								</td>
 								<td>
 									<?php if ($value->status_pemesanan == 0 and $value->status_pembayaran == 0) { ?>
-										<span class="fa fa-primary">Belum Bayar</span>
+										<span class="badge badge-warning">Belum Bayar</span>
 									<?php } elseif ($value->status_pemesanan == 0 and $value->status_pembayaran == 1) { ?>
-										<span class="fa fa-warning">Sudah Bayar <br> / Vaifikiasi</span>
+										<span class="badge badge-primary">Sudah Bayar <br> / Vaifikiasi</span>
 									<?php } elseif ($value->status_pemesanan == 1) { ?>
 										<span class="fa fa-success">proses</span>
 									<?php } elseif ($value->status_pemesanan == 2) { ?>
