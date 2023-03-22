@@ -20,8 +20,14 @@ class Pemesanan extends CI_Controller
 			'diproses' => $this->m_pemesanan->diproses(),
 			'selesai' => $this->m_pemesanan->selesai(),
 			'batal' => $this->m_pemesanan->batal(),
+			'belum_bayar_2' => $this->m_pemesanan->belum_bayar_2(),
+			'diproses_2' => $this->m_pemesanan->diproses_2(),
+			'selesai_2' => $this->m_pemesanan->selesai_2(),
+			'batal_2' => $this->m_pemesanan->batal_2(),
 			'isi' => 'frontend/pesanan/v_pesanan'
 		);
+		// echo $this->db->last_query();
+		// die();
 		$this->load->view('frontend/v_wrapper', $data, FALSE);
 	}
 
