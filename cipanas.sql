@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 08:04 AM
+-- Generation Time: Mar 22, 2023 at 02:12 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -54,6 +54,7 @@ INSERT INTO `admin` (`id_admin`, `nama_admin`, `alamat_admin`, `no_tlpn_admin`, 
 CREATE TABLE `detail_pemesanan` (
   `id_detail_pemesanan` varchar(50) NOT NULL,
   `id_tiket` int(11) DEFAULT NULL,
+  `id_tiket_keluarga` int(11) DEFAULT NULL,
   `id_pemesanan` varchar(50) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -62,13 +63,36 @@ CREATE TABLE `detail_pemesanan` (
 -- Dumping data for table `detail_pemesanan`
 --
 
-INSERT INTO `detail_pemesanan` (`id_detail_pemesanan`, `id_tiket`, `id_pemesanan`, `qty`) VALUES
-('GA6F4', 1, '20221213EXS1TQVC', 2),
-('lGwer', 1, '20230111R2WYFEMF', 1),
-('R5vIl', 1, '202302113RIDNMPC', 1),
-('tsN2C', 1, '20230228IIAANZ4H', 1),
-('Yjb9m', 2, '20230111AIOXCURY', 1),
-('ZB1rs', 2, '2023021117LV5CMR', 1);
+INSERT INTO `detail_pemesanan` (`id_detail_pemesanan`, `id_tiket`, `id_tiket_keluarga`, `id_pemesanan`, `qty`) VALUES
+('1a4gb', 3, NULL, '20230322ZY3O7BXW', 1),
+('BTUwM', 2, NULL, '20230322C4UWO9MG', 1),
+('FRZhG', 1, NULL, '20230322ZY3O7BXW', 1),
+('k3DIJ', 1, NULL, '20230322STWVDM4N', 3),
+('nOfkA', 2, NULL, '20230322STWVDM4N', 0),
+('siPZ9', 3, NULL, '20230322TAFWOM98', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keluarga`
+--
+
+CREATE TABLE `keluarga` (
+  `id_tiket_keluarga` int(11) NOT NULL,
+  `nama_tiket_keluarga` varchar(50) DEFAULT NULL,
+  `harga_tiket` varchar(50) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `deskripsi_tiket` text NOT NULL,
+  `gambar` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keluarga`
+--
+
+INSERT INTO `keluarga` (`id_tiket_keluarga`, `nama_tiket_keluarga`, `harga_tiket`, `jumlah`, `deskripsi_tiket`, `gambar`) VALUES
+(1, 'keluarga bahagia ', '12000', 12, 'asasa', 'avatar5.png'),
+(2, 'keluarga banyak ', '1230000', 12, 'tiket keluarga', 'avatar.png');
 
 -- --------------------------------------------------------
 
@@ -89,8 +113,7 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `id_pemesanan`, `atas_nama`, `bukti_bayar`, `upload_time`) VALUES
-(1, '20230111AIOXCURY', 'andi', 'Screenshot_(86).png', NULL),
-(2, '202302113RIDNMPC', 'jamaludin', 'cappucino_dingin.jpg', NULL);
+(1, '20230322TAFWOM98', 'andi', 'avatar5.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -115,12 +138,10 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisatawan`, `tgl_pemesanan`, `tgl_booking`, `total`, `metode_bayar`, `status_pembayaran`, `status_pemesanan`, `create_update`) VALUES
-('20221213EXS1TQVC', 1, '2022-12-13', '2022-12-21', '50000', '1', 0, 2, NULL),
-('20230111AIOXCURY', 1, '2023-01-11', '2023-01-11', '50000', '2', 1, 2, NULL),
-('20230111R2WYFEMF', 1, '2023-01-11', '2023-01-12', '25000', '1', 0, 2, NULL),
-('2023021117LV5CMR', 2, '2023-02-11', '2023-02-17', '45500', '1', 0, 2, NULL),
-('202302113RIDNMPC', 1, '2023-02-11', '2023-02-16', '25000', '2', 1, 2, NULL),
-('20230228IIAANZ4H', 1, '2023-02-28', '2023-03-01', '25000', '1', 0, 1, NULL);
+('20230322C4UWO9MG', 1, '2023-03-22', '2023-03-23', '45500', '1', 0, 6, NULL),
+('20230322STWVDM4N', 1, '2023-03-22', '2023-03-28', '75000', '2', 0, 3, NULL),
+('20230322TAFWOM98', 2, '2023-03-22', '2023-03-24', '120000', '2', 1, 1, NULL),
+('20230322ZY3O7BXW', 1, '2023-03-22', '2023-03-31', '145000', '1', 0, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -131,6 +152,7 @@ INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisatawan`, `tgl_pemesanan`, `tgl_b
 CREATE TABLE `promo` (
   `id_promo` int(11) NOT NULL,
   `id_tiket` int(11) DEFAULT NULL,
+  `id_tiket_keluarga` int(11) DEFAULT NULL,
   `tgl_promo` varchar(125) DEFAULT NULL,
   `ket` text DEFAULT NULL,
   `range` int(5) DEFAULT NULL
@@ -140,9 +162,12 @@ CREATE TABLE `promo` (
 -- Dumping data for table `promo`
 --
 
-INSERT INTO `promo` (`id_promo`, `id_tiket`, `tgl_promo`, `ket`, `range`) VALUES
-(1, 1, '2022-12-13', '0', 0),
-(2, 2, '2022-12-22', 'okok', 9);
+INSERT INTO `promo` (`id_promo`, `id_tiket`, `id_tiket_keluarga`, `tgl_promo`, `ket`, `range`) VALUES
+(1, 1, NULL, '2022-12-13', '0', 0),
+(2, 2, NULL, '2022-12-22', 'okok', 9),
+(3, 3, NULL, '2023-03-21', '0', 0),
+(4, NULL, 1, '2023-03-21', '0', 0),
+(5, NULL, 2, '2023-03-21', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -178,6 +203,7 @@ CREATE TABLE `tiket` (
   `nama_tiket` varchar(125) DEFAULT NULL,
   `deskripsi_tiket` text DEFAULT NULL,
   `harga_tiket` varchar(15) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
   `tipe_tiket` varchar(5) DEFAULT NULL,
   `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -186,9 +212,10 @@ CREATE TABLE `tiket` (
 -- Dumping data for table `tiket`
 --
 
-INSERT INTO `tiket` (`id_tiket`, `nama_tiket`, `deskripsi_tiket`, `harga_tiket`, `tipe_tiket`, `gambar`) VALUES
-(1, 'tiket bundling', 'tiket untuk berudua', '25000', '3', 'tiket4.jpg'),
-(2, 'tiket get one free one', 'Beli satu gratis satu tiket', '50000', '2', 'tiket5.jpg');
+INSERT INTO `tiket` (`id_tiket`, `nama_tiket`, `deskripsi_tiket`, `harga_tiket`, `jumlah`, `tipe_tiket`, `gambar`) VALUES
+(1, 'Beli satu gratis satu', 'tiket untuk berudua', '25000', 0, '2', 'tiket4.jpg'),
+(2, 'keluarga bahagia ', 'Paket tiket keluarga', '50000', 12, '1', 'tiket5.jpg'),
+(3, 'satu tiket', 'tiket biasa', '120000', 0, '2', 'avatar04.png');
 
 -- --------------------------------------------------------
 
@@ -224,6 +251,7 @@ CREATE TABLE `ulasan` (
   `id_ulasan` int(11) NOT NULL,
   `id_tiket` int(11) DEFAULT NULL,
   `id_detail_pemesanan` varchar(50) DEFAULT NULL,
+  `id_tiket_keluarga` int(11) DEFAULT NULL,
   `tgl_ulasan` date DEFAULT NULL,
   `isi_ulasan` text DEFAULT NULL,
   `rating` varchar(125) DEFAULT NULL,
@@ -235,13 +263,22 @@ CREATE TABLE `ulasan` (
 -- Dumping data for table `ulasan`
 --
 
-INSERT INTO `ulasan` (`id_ulasan`, `id_tiket`, `id_detail_pemesanan`, `tgl_ulasan`, `isi_ulasan`, `rating`, `time_ulasan`, `status_ulasan`) VALUES
-(1, 1, 'GA6F4', '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1),
-(2, 1, 'lGwer', '0000-00-00', '0', '0', '2023-01-11 07:12:06', 0),
-(3, 2, 'Yjb9m', '0000-00-00', '0', '0', '2023-01-11 07:12:29', 0),
-(4, 1, 'R5vIl', '0000-00-00', '0', '0', '2023-02-11 08:37:23', 0),
-(5, 2, 'ZB1rs', '0000-00-00', '0', '0', '2023-02-11 08:56:49', 0),
-(6, 1, 'tsN2C', '0000-00-00', '0', '0', '2023-02-28 03:06:04', 0);
+INSERT INTO `ulasan` (`id_ulasan`, `id_tiket`, `id_detail_pemesanan`, `id_tiket_keluarga`, `tgl_ulasan`, `isi_ulasan`, `rating`, `time_ulasan`, `status_ulasan`) VALUES
+(1, 1, 'GA6F4', NULL, '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1),
+(2, 1, 'lGwer', NULL, '0000-00-00', '0', '0', '2023-01-11 07:12:06', 0),
+(3, 2, 'Yjb9m', NULL, '0000-00-00', '0', '0', '2023-01-11 07:12:29', 0),
+(4, 1, 'R5vIl', NULL, '0000-00-00', '0', '0', '2023-02-11 08:37:23', 0),
+(5, 2, 'ZB1rs', NULL, '0000-00-00', '0', '0', '2023-02-11 08:56:49', 0),
+(6, 1, 'tsN2C', NULL, '0000-00-00', '0', '0', '2023-02-28 03:06:04', 0),
+(7, 2, 'vs4o6', NULL, '0000-00-00', '0', '0', '2023-03-15 03:07:24', 0),
+(8, 2, 'Djic1', NULL, '0000-00-00', '0', '0', '2023-03-21 07:38:25', 0),
+(9, 1, 'Ssnh1', NULL, '0000-00-00', '0', '0', '2023-03-21 07:38:25', 0),
+(10, 2, 'BTUwM', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:16', 0),
+(11, 3, 'siPZ9', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:33', 0),
+(12, 1, 'FRZhG', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:54', 0),
+(13, 3, '1a4gb', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:54', 0),
+(14, 2, 'nOfkA', NULL, '0000-00-00', '0', '0', '2023-03-22 00:41:25', 0),
+(15, 1, 'k3DIJ', NULL, '0000-00-00', '0', '0', '2023-03-22 00:41:25', 0);
 
 -- --------------------------------------------------------
 
@@ -268,7 +305,7 @@ CREATE TABLE `wisatawan` (
 --
 
 INSERT INTO `wisatawan` (`id_wisatawan`, `nama_wisatawan`, `jk`, `ttl`, `provinsi`, `kab_kota`, `alamat_detail`, `no_hp`, `username`, `password`, `gratis_tiket`) VALUES
-(1, 'andi', 'perempuan', 'kuningan, 17-01-1021', 'jawabarat', 'kuningan', 'selajambe kuningan', '089192819281', 'andi', '12341234', 3),
+(1, 'andi', 'laki-laki', 'kuningan, 17-01-1021', 'jawabarat', 'kuningan', 'selajambe kuningan', '089192819281', 'andi', '12341234', 3),
 (2, 'adis', 'perempuan', 'kuningan, 17-01-1021', 'jawabarat', 'kuningan', 'selajambe kuningan', '089192819281', 'adis', '12341234', 0),
 (3, 'ruhaeti', 'perempuan', 'kuningan, 17-01-1021', 'jawabarat', 'kuningan', 'selajambe kuningan', '089192819281', 'ruhaeti', '12341234', 0);
 
@@ -287,6 +324,12 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `detail_pemesanan`
   ADD PRIMARY KEY (`id_detail_pemesanan`);
+
+--
+-- Indexes for table `keluarga`
+--
+ALTER TABLE `keluarga`
+  ADD PRIMARY KEY (`id_tiket_keluarga`);
 
 --
 -- Indexes for table `pembayaran`
@@ -347,16 +390,22 @@ ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `keluarga`
+--
+ALTER TABLE `keluarga`
+  MODIFY `id_tiket_keluarga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `promo`
 --
 ALTER TABLE `promo`
-  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `rinci_langsung`
@@ -368,7 +417,7 @@ ALTER TABLE `rinci_langsung`
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transaksi_langsung`
@@ -380,7 +429,7 @@ ALTER TABLE `transaksi_langsung`
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `wisatawan`
