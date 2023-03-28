@@ -52,14 +52,14 @@
 
 						<?php if ($value->range > 0) : ?>
 							<p>Harga Utama</p>
-							<h6>Rp. <?= number_format($value->harga_tiket, 0); ?></h6>
+							<h6>Rp. <?= number_format($value->harga_tiket, 0) ?></h6>
 							<p>Kini Menjadi</p>
-							<h5>Rp <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket),), 0 ?></h5>
+							<h5>Rp <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket), 0) ?></h5>
 							<!-- <span class="price-sale">Rp. <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket), 0); ?></span> -->
 						<?php else : ?>
 							<p>Harga Utama</p>
 							<!-- <span class="mr-2"><span class="price-sale">Rp. <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket), 0); ?></span> -->
-							<h5>Rp <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket),), 0 ?></h5>
+							<h5>Rp <?= number_format($value->harga_tiket - ($value->range / 100 * $value->harga_tiket), 0) ?></h5>
 						<?php endif; ?>
 
 					</div>
