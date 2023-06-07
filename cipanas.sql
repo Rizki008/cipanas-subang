@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 02:12 AM
+-- Generation Time: Jun 07, 2023 at 05:49 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -64,12 +64,9 @@ CREATE TABLE `detail_pemesanan` (
 --
 
 INSERT INTO `detail_pemesanan` (`id_detail_pemesanan`, `id_tiket`, `id_tiket_keluarga`, `id_pemesanan`, `qty`) VALUES
-('1a4gb', 3, NULL, '20230322ZY3O7BXW', 1),
-('BTUwM', 2, NULL, '20230322C4UWO9MG', 1),
-('FRZhG', 1, NULL, '20230322ZY3O7BXW', 1),
-('k3DIJ', 1, NULL, '20230322STWVDM4N', 3),
-('nOfkA', 2, NULL, '20230322STWVDM4N', 0),
-('siPZ9', 3, NULL, '20230322TAFWOM98', 1);
+('m048P', 3, NULL, '20230607MTIWAC3F', 2),
+('OVyS2', 4, NULL, '20230607GOWB26FD', 1),
+('qT7xn', 2, NULL, '20230607GOWB26FD', 1);
 
 -- --------------------------------------------------------
 
@@ -108,13 +105,6 @@ CREATE TABLE `pembayaran` (
   `upload_time` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `pembayaran`
---
-
-INSERT INTO `pembayaran` (`id_pembayaran`, `id_pemesanan`, `atas_nama`, `bukti_bayar`, `upload_time`) VALUES
-(1, '20230322TAFWOM98', 'andi', 'avatar5.png', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -138,10 +128,8 @@ CREATE TABLE `pemesanan` (
 --
 
 INSERT INTO `pemesanan` (`id_pemesanan`, `id_wisatawan`, `tgl_pemesanan`, `tgl_booking`, `total`, `metode_bayar`, `status_pembayaran`, `status_pemesanan`, `create_update`) VALUES
-('20230322C4UWO9MG', 1, '2023-03-22', '2023-03-23', '45500', '1', 0, 6, NULL),
-('20230322STWVDM4N', 1, '2023-03-22', '2023-03-28', '75000', '2', 0, 3, NULL),
-('20230322TAFWOM98', 2, '2023-03-22', '2023-03-24', '120000', '2', 1, 1, NULL),
-('20230322ZY3O7BXW', 1, '2023-03-22', '2023-03-31', '145000', '1', 0, 3, NULL);
+('20230607GOWB26FD', 1, '2023-06-07', '2023-06-08', '338950', '1', 0, 2, NULL),
+('20230607MTIWAC3F', 1, '2023-06-07', '2023-06-29', '25000', '1', 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -167,7 +155,9 @@ INSERT INTO `promo` (`id_promo`, `id_tiket`, `id_tiket_keluarga`, `tgl_promo`, `
 (2, 2, NULL, '2022-12-22', 'okok', 9),
 (3, 3, NULL, '2023-03-21', '0', 0),
 (4, NULL, 1, '2023-03-21', '0', 0),
-(5, NULL, 2, '2023-03-21', '0', 0);
+(5, NULL, 2, '2023-03-21', '0', 0),
+(6, 4, NULL, '2023-03-28', '0', 0),
+(7, 5, NULL, '2023-06-07', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -190,7 +180,8 @@ CREATE TABLE `rinci_langsung` (
 INSERT INTO `rinci_langsung` (`id_rinci_langsung`, `no_jual`, `id_tiket`, `qty`, `tgl_jual`) VALUES
 (1, '202212143128', 1, 1, '2022-12-14'),
 (2, '202302215717', 2, 2, '2023-02-21'),
-(3, '202302284842', 2, 1, '2023-02-28');
+(3, '202302284842', 2, 1, '2023-02-28'),
+(4, '202306073032', 5, 3, '2023-06-07');
 
 -- --------------------------------------------------------
 
@@ -204,7 +195,8 @@ CREATE TABLE `tiket` (
   `deskripsi_tiket` text DEFAULT NULL,
   `harga_tiket` varchar(15) DEFAULT NULL,
   `jumlah` int(11) DEFAULT NULL,
-  `tipe_tiket` varchar(5) DEFAULT NULL,
+  `stok` bigint(50) DEFAULT NULL,
+  `tipe_tiket` int(11) DEFAULT NULL,
   `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -212,10 +204,12 @@ CREATE TABLE `tiket` (
 -- Dumping data for table `tiket`
 --
 
-INSERT INTO `tiket` (`id_tiket`, `nama_tiket`, `deskripsi_tiket`, `harga_tiket`, `jumlah`, `tipe_tiket`, `gambar`) VALUES
-(1, 'Beli satu gratis satu', 'tiket untuk berudua', '25000', 0, '2', 'tiket4.jpg'),
-(2, 'keluarga bahagia ', 'Paket tiket keluarga', '50000', 12, '1', 'tiket5.jpg'),
-(3, 'satu tiket', 'tiket biasa', '120000', 0, '2', 'avatar04.png');
+INSERT INTO `tiket` (`id_tiket`, `nama_tiket`, `deskripsi_tiket`, `harga_tiket`, `jumlah`, `stok`, `tipe_tiket`, `gambar`) VALUES
+(1, 'Beli satu gratis satu', 'Tiket Promo, Beli satu tiket gratis satu tiket', '18000', 2, 12, 3, 'tiket4.jpg'),
+(2, 'Paket Tiket Keluarga', 'Paket tiket keluarga dengan harga murah, 4 tiket hanya Rp.345.000', '345000', 4, 24, 1, 'tiket5.jpg'),
+(3, 'Tiket biasa', 'Tiket biasa 1 tiket', '12500', NULL, 19, 2, 'tiket6.jpg'),
+(4, 'Tiket Double', 'Beli dua tiket secara langsung lebih murah', '25000', 2, 12, 3, 'tiket11.jpg'),
+(5, 'Tiket reguler', 'Tiket reguler / tiket biasa, satu tiket harga Rp.15.000', '15000', 0, 30, 2, 'tiket7.jpg');
 
 -- --------------------------------------------------------
 
@@ -239,7 +233,8 @@ CREATE TABLE `transaksi_langsung` (
 INSERT INTO `transaksi_langsung` (`id_pesan`, `no_jual`, `tgl_beli`, `total_harga`, `jumlah_bayar`, `status_beli`) VALUES
 (1, '202212143128', '2022-12-14', 25000, 25000, 1),
 (2, '202302215717', '2023-02-21', 100000, 1000000, 1),
-(3, '202302284842', '2023-02-28', 50000, 11111111, 1);
+(3, '202302284842', '2023-02-28', 50000, 11111111, 1),
+(4, '202306073032', '2023-06-07', 45000, 45000, 1);
 
 -- --------------------------------------------------------
 
@@ -264,21 +259,9 @@ CREATE TABLE `ulasan` (
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `id_tiket`, `id_detail_pemesanan`, `id_tiket_keluarga`, `tgl_ulasan`, `isi_ulasan`, `rating`, `time_ulasan`, `status_ulasan`) VALUES
-(1, 1, 'GA6F4', NULL, '2022-12-13', 'bagus', '3', '2022-12-13 08:25:01', 1),
-(2, 1, 'lGwer', NULL, '0000-00-00', '0', '0', '2023-01-11 07:12:06', 0),
-(3, 2, 'Yjb9m', NULL, '0000-00-00', '0', '0', '2023-01-11 07:12:29', 0),
-(4, 1, 'R5vIl', NULL, '0000-00-00', '0', '0', '2023-02-11 08:37:23', 0),
-(5, 2, 'ZB1rs', NULL, '0000-00-00', '0', '0', '2023-02-11 08:56:49', 0),
-(6, 1, 'tsN2C', NULL, '0000-00-00', '0', '0', '2023-02-28 03:06:04', 0),
-(7, 2, 'vs4o6', NULL, '0000-00-00', '0', '0', '2023-03-15 03:07:24', 0),
-(8, 2, 'Djic1', NULL, '0000-00-00', '0', '0', '2023-03-21 07:38:25', 0),
-(9, 1, 'Ssnh1', NULL, '0000-00-00', '0', '0', '2023-03-21 07:38:25', 0),
-(10, 2, 'BTUwM', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:16', 0),
-(11, 3, 'siPZ9', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:33', 0),
-(12, 1, 'FRZhG', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:54', 0),
-(13, 3, '1a4gb', NULL, '0000-00-00', '0', '0', '2023-03-22 00:40:54', 0),
-(14, 2, 'nOfkA', NULL, '0000-00-00', '0', '0', '2023-03-22 00:41:25', 0),
-(15, 1, 'k3DIJ', NULL, '0000-00-00', '0', '0', '2023-03-22 00:41:25', 0);
+(1, 4, 'OVyS2', NULL, '2023-06-07', 'sangat puas', '4', '2023-06-07 14:51:39', 1),
+(2, 2, 'qT7xn', NULL, '2023-06-07', 'sangat puas', '4', '2023-06-07 14:51:39', 1),
+(3, 3, 'm048P', NULL, '0000-00-00', '0', '0', '2023-06-07 15:27:19', 0);
 
 -- --------------------------------------------------------
 
@@ -399,37 +382,37 @@ ALTER TABLE `keluarga`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `promo`
 --
 ALTER TABLE `promo`
-  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rinci_langsung`
 --
 ALTER TABLE `rinci_langsung`
-  MODIFY `id_rinci_langsung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rinci_langsung` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tiket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `transaksi_langsung`
 --
 ALTER TABLE `transaksi_langsung`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `wisatawan`
