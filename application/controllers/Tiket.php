@@ -54,6 +54,7 @@ class Tiket extends CI_Controller
 					'harga_tiket' => $this->input->post('harga_tiket'),
 					'tipe_tiket' => $this->input->post('tipe_tiket'),
 					'jumlah' => $this->input->post('jumlah'),
+					'stok' => $this->input->post('stok'),
 					'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -119,6 +120,7 @@ class Tiket extends CI_Controller
 					'harga_tiket' => $this->input->post('harga_tiket'),
 					'tipe_tiket' => $this->input->post('tipe_tiket'),
 					'jumlah' => $this->input->post('jumlah'),
+					'stok' => $this->input->post('stok'),
 					'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
@@ -132,6 +134,7 @@ class Tiket extends CI_Controller
 				'harga_tiket' => $this->input->post('harga_tiket'),
 				'tipe_tiket' => $this->input->post('tipe_tiket'),
 				'jumlah' => $this->input->post('jumlah'),
+				'stok' => $this->input->post('stok'),
 				'deskripsi_tiket' => $this->input->post('deskripsi_tiket'),
 			);
 			$this->m_tiket->edit($data);
