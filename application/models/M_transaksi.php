@@ -111,11 +111,11 @@ class M_transaksi extends CI_Model
 
 	public function grafik_kelamin()
 	{
-		return $this->db->query("SELECT SUM(qty) as hasil, jk FROM detail_pemesanan JOIN pemesanan ON detail_pemesanan.id_pemesanan=pemesanan.id_pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.jk")->result();
+		return $this->db->query("SELECT SUM(pemesanan.id_wisatawan) as hasil, jk FROM pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.jk")->result();
 	}
 	public function grafik_datang()
 	{
-		return $this->db->query("SELECT SUM(pemesanan.id_wisatawan) as datang, nama_wisatawan FROM detail_pemesanan JOIN pemesanan ON detail_pemesanan.id_pemesanan=pemesanan.id_pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.id_wisatawan")->result();
+		return $this->db->query("SELECT SUM(pemesanan.id_wisatawan) as datang, nama_wisatawan FROM pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.id_wisatawan")->result();
 	}
 
 	//TRANSAKSI LANGSUNG
