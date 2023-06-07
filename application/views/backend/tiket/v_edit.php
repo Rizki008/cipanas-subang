@@ -21,17 +21,29 @@
 					<label for="floatingPassword">Harga Tiket</label>
 				</div>
 				<div class="form-floating mb-3">
-					<select class="form-select" id="floatingSelect" name="tipe_tiket" value="<?= $tiket->tipe_tiket ?>" aria-label="Floating label select example">
-						<option selected value="<?= $tiket->id_tiket ?>"><?= $tiket->tipe_tiket ?></option>
-						<option selected>Tipe Tiket</option>
+					<select class="form-select" id="ok" onChange="opsi(this)" name="tipe_tiket" value="<?= $tiket->tipe_tiket ?>" aria-label="Floating label select example">
+						<option selected value="<?= $tiket->id_tiket ?>"><?php if ($tiket->tipe_tiket == 1) { ?>
+								<p>Paket Keluarga</p>
+							<?php } elseif ($tiket->tipe_tiket == 2) { ?>
+								<p>Tiket Biasa</p>
+							<?php } elseif ($tiket->tipe_tiket == 3) { ?>
+								<p>Tiket Promo</p>
+							<?php }  ?>
+						</option>
+						<option>Tipe Tiket</option>
 						<option value="1">Paket Keluarga</option>
-						<option value="2">TIket Biasa</option>
+						<option value="2">Tiket Biasa</option>
+						<option value="3">Tiket Promo</option>
 					</select>
 					<label for="floatingSelect">Pilih Tipe Tiket</label>
 				</div>
 				<div class="form-floating mb-3">
-					<input type="number" class="form-control" name="jumlah" value="<?= $tiket->jumlah ?>" id="floatingPassword" placeholder="Jumlah Paket Tiket Keluarga">
-					<label for="floatingPassword">Jumlah Tiket Keluarga</label>
+					<input type="number" class="form-control" id="inputku" name="jumlah" value="<?= $tiket->jumlah ?>" id="floatingPassword" placeholder="Jumlah Paket Tiket Keluarga">
+					<label for="floatingPassword">Jumlah Tiket</label>
+				</div>
+				<div class="form-floating mb-3">
+					<input type="number" class="form-control" name="stok" value="<?= $tiket->stok ?>" id="floatingPassword" placeholder="Qty">
+					<label for="floatingPassword">QTY Tiket</label>
 				</div>
 				<div class="form-floating mb-3">
 					<input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar Tiket">

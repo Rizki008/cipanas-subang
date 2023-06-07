@@ -28,16 +28,21 @@
 				</div>
 
 				<div class="form-floating mb-3">
-					<select class="form-select" id="floatingSelect" name="tipe_tiket" value="<?= set_value('tipe_tiket') ?>" aria-label="Floating label select example">
+					<select class="form-select" id="ok" onChange="opsi(this)" name="tipe_tiket" value="<?= set_value('tipe_tiket') ?>" aria-label="Floating label select example">
 						<option selected>Tipe Tiket</option>
 						<option value="1">Paket Keluarga</option>
 						<option value="2">TIket Biasa</option>
+						<option value="3">Tiket Promo</option>
 					</select>
 					<label for="floatingSelect">Pilih Tipe Tiket</label>
 				</div>
 				<div class="form-floating mb-3">
-					<input type="number" class="form-control" name="jumlah" value="<?= set_value('jumlah') ?>" id="floatingPassword" placeholder="Harga Tiket">
-					<label for="floatingPassword">Jumlah Tike Paket Keluarga</label>
+					<input type="number" class="form-control" id="inputku" name="jumlah" value="<?= set_value('jumlah') ?>" id="floatingPassword" placeholder="Harga Tiket">
+					<label for="floatingPassword">Jumlah Tike Promo / Paket Keluarga</label>
+				</div>
+				<div class="form-floating mb-3">
+					<input type="number" class="form-control" name="stok" value="<?= set_value('stok') ?>" id="floatingPassword" placeholder="QTY Tiket">
+					<label for="floatingPassword">QTY Tike</label>
 				</div>
 				<div class="form-floating mb-3">
 					<input type="file" class="form-control" name="gambar" id="preview_gambar" placeholder="Gambar Tiket">
