@@ -10,7 +10,8 @@
 							<th scope="col">Nama Tiket</th>
 							<th scope="col">Harga Tiket</th>
 							<th scope="col">Tipe Tiket</th>
-							<th scope="col">Jumlah Tiket Keluarga</th>
+							<th scope="col">Jumlah Tiket Promo/Keluarga</th>
+							<th scope="col">Qty Tiket</th>
 							<th scope="col">Deskripsi</th>
 							<th scope="col">Setting</th>
 						</tr>
@@ -26,14 +27,20 @@
 										Tiket Paket Keluarga
 									<?php } elseif ($value->tipe_tiket == 2) { ?>
 										Tiket Biasa
+									<?php } elseif ($value->tipe_tiket == 3) { ?>
+										Tiket Promo
 									<?php } ?>
 								</td>
-								<td><?php if ($value->tipe_tiket == 1) { ?>
-										<?= $value->jumlah ?>
+								<td>
+									<?php if ($value->tipe_tiket == 1) { ?>
+										<?= $value->jumlah ?> Tiket Perkeluarga
 									<?php } elseif ($value->tipe_tiket == 2) { ?>
-										0
+										<p>0</p>
+									<?php } elseif ($value->tipe_tiket == 3) { ?>
+										<?= $value->jumlah ?> Tiket Perpromo
 									<?php } ?>
 								</td>
+								<td><?= $value->stok ?></td>
 								<td><?= $value->deskripsi_tiket ?></td>
 								<td>
 									<a href="<?= base_url('tiket/edit/' . $value->id_tiket) ?>" class="btn btn-warning"><i class="fa fa-pencil-alt"></i></a>
