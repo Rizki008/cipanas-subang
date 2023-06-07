@@ -24,10 +24,11 @@
 					<div class="table-head">
 						<div class="serial">#</div>
 						<div class="country">Nama Tiket</div>
-						<div class="visit">Harga Tiket</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<!-- <div class="percentage">Tipe Tiket</div> -->
-						<div class="percentage">Jumlah Tiket</div>
-						<div class="percentage">Total Harga Tiket</div>
+						<div class="percentage">Jumlah Tiket Promo/Keluarga</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="percentage">Qty Tiket</div>
+						<div class="percentage">Harga</div>
+						<div class="percentage">Total Harga</div>
 						<div class="percentage">Aksi</div>
 					</div>
 					<?php $i = 1; ?>
@@ -40,21 +41,22 @@
 							<div class="table-row">
 								<div class="serial"><?= $no++ ?></div>
 								<div class="country"> <?php echo $items['name'] ?></div>
-								<div class="visit">Rp. <?= number_format($items['price'], 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								<!-- <div class="percentage"><?= $items['type'] ?></div> -->
-								<div class="percentage"><?php echo form_input(
-															array(
-																'name' => $i . '[qty]',
-																'value' => $items['qty'],
-																'maxlength' => '3',
-																'min' => '0',
-																'max' => 'stock',
-																'size' => '5',
-																'type' => 'number',
-																'class' => 'form-control'
-															)
-														); ?>
+								<div class="percentage"><?= $items['jumlah'] ?></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="percentage">
+									<?php echo form_input(
+										array(
+											'name' => $i . '[qty]',
+											'value' => $items['qty'],
+											'maxlength' => '3',
+											'min' => '0',
+											'max' => 'stock',
+											'size' => '5',
+											'type' => 'number',
+											'class' => 'form-control'
+										)
+									); ?>
 								</div>
+								<div class="percentage">Rp. <?= number_format($items['price'], 0); ?></div>
 								<div class="percentage">
 									Rp. <?= number_format($items['subtotal'], 0); ?>
 								</div>
@@ -67,10 +69,51 @@
 							<div class="table-row">
 								<div class="serial"><?= $no++ ?></div>
 								<div class="country"> <?php echo $items['name'] ?></div>
-								<div class="visit">Rp. <?= number_format($items['price'], 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="percentage"> <?php echo $items['jumlah'] ?> </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<!-- <div class="percentage"><?= $items['type'] ?></div> -->
-								<div class="percentage"><?php echo $items['jumlah'] ?>
+								<div class="percentage">
+									<?php echo form_input(
+										array(
+											'name' => $i . '[qty]',
+											'value' => $items['qty'],
+											'maxlength' => '3',
+											'min' => '0',
+											'max' => 'stock',
+											'size' => '5',
+											'type' => 'number',
+											'class' => 'form-control'
+										)
+									); ?>
 								</div>
+								<div class="percentage">Rp. <?= number_format($items['price'], 0); ?> </div>
+								<div class="percentage">
+									Rp. <?= number_format($items['subtotal'], 0); ?>
+								</div>
+								<div class="percentage">
+									<a href="<?= base_url('pembelian/delete/') . $items['rowid'] ?>" class="btn btn-danger btn-sm">Hapus</a>&nbsp;
+									<button type="submit" class="btn btn-warning btn-sm">Perbarui</button>
+								</div>
+							</div>
+						<?php } elseif ($items['type'] == 3) { ?>
+							<div class="table-row">
+								<div class="serial"><?= $no++ ?></div>
+								<div class="country"> <?php echo $items['name'] ?></div>
+								<div class="percentage"><?= $items['jumlah'] ?></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<div class="percentage">
+									<?php echo form_input(
+										array(
+											'name' => $i . '[qty]',
+											'value' => $items['qty'],
+											'maxlength' => '3',
+											'min' => '0',
+											'max' => 'stock',
+											'size' => '5',
+											'type' => 'number',
+											'class' => 'form-control'
+										)
+									); ?>
+								</div>
+								<div class="percentage">Rp. <?= number_format($items['price'], 0); ?></div>
 								<div class="percentage">
 									Rp. <?= number_format($items['subtotal'], 0); ?>
 								</div>
