@@ -79,6 +79,7 @@ class M_pemesanan extends CI_Model
 		$this->db->from('pemesanan');
 		$this->db->join('detail_pemesanan', 'pemesanan.id_pemesanan = detail_pemesanan.id_pemesanan', 'left');
 		$this->db->join('tiket', 'detail_pemesanan.id_tiket = tiket.id_tiket', 'left');
+		$this->db->join('ulasan', 'ulasan.id_detail_pemesanan = detail_pemesanan.id_detail_pemesanan', 'left');
 		$this->db->where('id_wisatawan', $this->session->userdata('id_wisatawan'));
 		$this->db->where('status_pemesanan=2');
 		$this->db->where('metode_bayar=1');
