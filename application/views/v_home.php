@@ -38,17 +38,14 @@
 					<input type="hidden" name="qty" value="1">
 					<div class="accomodation_item text-center">
 						<div class="hotel_img">
-							<img src="<?= base_url('assets/tiket/' . $value->gambar) ?>" alt="">
+							<a href="<?= base_url('home/detail_produk/' . $value->id_tiket) ?>"><img src="<?= base_url('assets/tiket/' . $value->gambar) ?>" alt=""></a>
 							<button type="submit" class="btn theme_btn button_hover">Beli Tiket</button>
 						</div>
-						<a href="#">
+						<a href="<?= base_url('home/detail_produk/' . $value->id_tiket) ?>">
 							<h4 class="sec_h4"><?= $value->nama_tiket ?></h4>
 						</a>
-						<p><?= $value->deskripsi_tiket ?> <?php if ($value->tipe_tiket == 1) { ?>
-								<?= $value->jumlah ?> orang
-							<?php } elseif ($value->tipe_tiket == 2) { ?>
-
-							<?php } ?></p>
+						<p><?= $value->deskripsi_tiket ?> </p>
+						<p>Stok Tiket: &nbsp;<?= $value->stok ?></p>
 
 						<?php if ($value->range > 0) : ?>
 							<p>Harga Utama</p>
