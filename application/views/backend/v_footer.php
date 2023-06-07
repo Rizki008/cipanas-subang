@@ -50,6 +50,18 @@
 		$(".price").val($(this).find(':selected').attr('data-price'));
 	});
 </script>
+<script>
+	function opsi(value) {
+		var st = $("#ok").val();
+		if (st == "1") {
+			document.getElementById("inputku").disabled = false;
+		} else if (st == "3") {
+			document.getElementById("inputku").disabled = false;
+		} else {
+			document.getElementById("inputku").disabled = true;
+		}
+	}
+</script>
 </body>
 
 </html>
