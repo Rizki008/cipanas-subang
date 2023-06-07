@@ -31,7 +31,8 @@
 					<div class="table-head">
 						<div class="serial">#</div>
 						<div class="country">No Pesan</div>&nbsp;&nbsp;
-						<div class="visit">Harga Tiket</div>
+						<div class="visit">Harga Tiket</div>&nbsp;&nbsp;&nbsp;&nbsp;
+						<div class="visit">Total Harga Tiket</div>&nbsp;&nbsp;&nbsp;&nbsp;
 						<div class="percentage">Tanggal Pemesanan</div>
 						<div class="percentage">Tanggal Booking</div>
 						<!-- <div class="percentage">Jumlah Tiket</div> -->
@@ -42,7 +43,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
@@ -67,7 +69,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
@@ -85,14 +88,17 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
 							<div class="percentage">
-								<?php if ($value->status_pemesanan == 2) { ?>
+								<?php if ($value->status_pemesanan == 2 && $value->status_ulasan == 0) { ?>
 									<span class="badge badge-success"> Tiket Telah Diambil</span>
 									<a href="<?= base_url('pemesanan/ulasan/' . $value->id_pemesanan) ?>" class="btn btn-sm btn-flat btn-warning">Ulasan</a>
+								<?php } elseif ($value->status_pemesanan == 2 && $value->status_ulasan == 1) { ?>
+									<span class="badge badge-success"> Tiket Telah Diambil</span>
 								<?php } ?>
 							</div>
 						</div>
@@ -104,7 +110,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
@@ -132,6 +139,7 @@
 						<div class="serial">#</div>
 						<div class="country">No Pesan</div>&nbsp;&nbsp;
 						<div class="visit">Harga Tiket</div>
+						<div class="visit">Total Harga Tiket</div>
 						<div class="percentage">Tanggal Pemesanan</div>
 						<div class="percentage">Tanggal Booking</div>
 						<!-- <div class="percentage">Jumlah Tiket</div> -->
@@ -142,7 +150,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
@@ -167,7 +176,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
@@ -185,12 +195,13 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $value->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($value->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $value->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $value->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $value->qty ?></div> -->
 							<div class="percentage">
-								<?php if ($value->status_pemesanan == 2) { ?>
+								<?php if ($value->status_pemesanan == 2 && $value->status_ulasan == 0) { ?>
 									<span class="badge badge-success"> Tiket Telah Diambil</span>
 									<a href="<?= base_url('pemesanan/ulasan/' . $value->id_pemesanan) ?>" class="btn btn-sm btn-flat btn-warning">Ulasan</a>
 								<?php } ?>
@@ -204,7 +215,8 @@
 						<div class="table-row">
 							<div class="serial"><?= $no++ ?></div>
 							<div class="country"> <?= $batal->id_pemesanan ?></div>&nbsp;&nbsp;
-							<div class="visit">Rp. <?= number_format($batal->total, 0); ?></div>
+							<div class="visit">Rp. <?= number_format($value->harga_tiket, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
+							<div class="visit">Rp. <?= number_format($batal->total, 0); ?></div>&nbsp;&nbsp;&nbsp;&nbsp;
 							<div class="percentage"><?= $batal->tgl_pemesanan ?></div>
 							<div class="percentage"><?= $batal->tgl_booking ?></div>
 							<!-- <div class="percentage"><?= $batal->qty ?></div> -->
