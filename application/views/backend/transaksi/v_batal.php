@@ -9,7 +9,7 @@
 							<th scope="col">#</th>
 							<th scope="col">No Pemesanan</th>
 							<th scope="col">Harga Tiket</th>
-							<!-- <th scope="col">Tanggal Pemesanan</th> -->
+							<th scope="col">Qty</th>
 							<th scope="col">Tanggal Booking</th>
 							<th scope="col">Metode Bayar</th>
 							<th scope="col">Status Bayar/Pemesanan</th>
@@ -23,7 +23,7 @@
 								<th scope="row"><?= $no++ ?></th>
 								<td><?= $value->id_pemesanan ?></td>
 								<td><?= number_format($value->total, 0) ?></td>
-								<!-- <td><?= $value->tgl_pemesanan ?></td> -->
+								<td><?= $value->qty ?></td>
 								<td><?= $value->tgl_booking ?></td>
 								<td>
 									<?php if ($value->metode_bayar == 1) { ?>
