@@ -15,6 +15,14 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
+			<div id="navbarSupportedContent">
+				<form action="<?= base_url('home/search') ?>" method="get">
+					<div class="input-group d-flex flex-row">
+						<input name="keyword" placeholder="Cari Tiket" class="form-control" type="text">
+						<button type="submit" value="cari" class="btn btn-warning"><i class="fa fa-search"></i></button>
+					</div>
+				</form>
+			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 				<ul class="nav navbar-nav menu_nav ml-auto">
