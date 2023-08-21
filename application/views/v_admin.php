@@ -19,12 +19,14 @@
 				</div>
 			</div>
 		</div>
+		<?php foreach ($tot_uang as $key => $totalsa) { ?>
+		<?php } ?>
 		<div class="col-sm-6 col-xl-3">
 			<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
 				<i class="fa fa-chart-area fa-3x text-primary"></i>
 				<div class="ms-3">
 					<p class="mb-2">Total Pemesanan</p>
-					<h6 class="mb-0"><?= $tot_uang ?></h6>
+					<h6 class="mb-0">Rp.<?= number_format($totalsa->total_pemesanan), 0 ?></h6>
 				</div>
 			</div>
 		</div>
@@ -32,7 +34,7 @@
 			<div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
 				<i class="fa fa-chart-pie fa-3x text-primary"></i>
 				<div class="ms-3">
-					<p class="mb-2">Total_booking</p>
+					<p class="mb-2">Total booking</p>
 					<h6 class="mb-0"><?= $tot_boking ?></h6>
 				</div>
 			</div>
@@ -52,9 +54,9 @@
 					<!-- <a href="">Show All</a> -->
 				</div>
 				<?php
-				foreach ($grafik as $key => $value) {
-					$nama_tiket[] = $value->nama_tiket;
-					$qty[] = $value->qty;
+				foreach ($grafik as $key => $tiketing) {
+					$nama_tiket[] = $tiketing->nama_tiket;
+					$qty[] = $tiketing->qty;
 				}
 				?>
 				<canvas id="myChart"></canvas>
@@ -163,13 +165,13 @@
 		<div class="col-sm-12 col-xl-6">
 			<div class="bg-light text-center rounded p-4">
 				<div class="d-flex align-items-center justify-content-between mb-4">
-					<h6 class="mb-0">Analisis Kedatangan Wiasatawan Berdasarkan Jenis Kelamin</h6>
+					<h6 class="mb-0">Analisis Wiasatawan Berdasarkan Jenis Kelamin</h6>
 					<!-- <a href="">Show All</a> -->
 				</div>
 				<?php
-				foreach ($grafik_kelamin as $key => $value) {
-					$jk[] = $value->jk;
-					$hasil[] = $value->hasil;
+				foreach ($grafik_kelamin as $key => $jeniskelamin) {
+					$jk[] = $jeniskelamin->jk;
+					$hasil[] = $jeniskelamin->hasil;
 				}
 				?>
 				<canvas id="myJK"></canvas>
@@ -282,9 +284,9 @@
 					<!-- <a href="">Show All</a> -->
 				</div>
 				<?php
-				foreach ($grafik_datang as $key => $value) {
-					$nama_wisatawan[] = $value->nama_wisatawan;
-					$datang[] = $value->datang;
+				foreach ($grafik_datang as $key => $datangkan) {
+					$nama_wisatawan[] = $datangkan->nama_wisatawan;
+					$datang[] = $datangkan->datang;
 				}
 				?>
 				<canvas id="myDT"></canvas>

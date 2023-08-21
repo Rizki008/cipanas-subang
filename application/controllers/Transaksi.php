@@ -11,12 +11,16 @@ class Transaksi extends CI_Controller
 		$this->load->model('m_pemesanan');
 	}
 
-	public function masuk()
+	public function index()
 	{
 		$data = array(
 			'title' => 'Booking Masuk',
 			'masuk' => $this->m_transaksi->masuk(),
-			'isi' => 'backend/transaksi/v_masuk'
+			'proses' => $this->m_transaksi->proses(),
+			'selesai' => $this->m_transaksi->selesai(),
+			'batal' => $this->m_transaksi->batal(),
+			'isi' => 'backend/transaksi/v_trans'
+			// 'isi' => 'backend/transaksi/v_masuk'
 		);
 		$this->load->view('backend/v_wrapper', $data, FALSE);
 	}
@@ -28,7 +32,7 @@ class Transaksi extends CI_Controller
 		);
 		$this->m_transaksi->update($data);
 		$this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
-		redirect('transaksi/proses');
+		redirect('transaksi');
 	}
 	public function detail($id_pemesanan)
 	{
@@ -47,7 +51,7 @@ class Transaksi extends CI_Controller
 		);
 		$this->m_transaksi->update($data);
 		$this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
-		redirect('transaksi/selesai');
+		redirect('transaksi');
 	}
 	public function proses()
 	{
@@ -84,7 +88,7 @@ class Transaksi extends CI_Controller
 		);
 		$this->m_pemesanan->update_status_pembayaran($data);
 		$this->session->set_flashdata('pesan', 'Pesanan Telah Dibatalkan');
-		redirect('transaksi/batal');
+		redirect('transaksi');
 	}
 
 	//TRANSAKSI LANGSUNG DI TEMPAT

@@ -55,9 +55,10 @@
 									<a href="#">
 										<h2><?= $data['tiket']->nama_tiket ?></h2>
 									</a>
-									<p><?= $data['tiket']->deskripsi_tiket ?></p>
+									<p>Deskripsi : <?= $data['tiket']->deskripsi_tiket ?></p>
+									<p>Stok Tiket: &nbsp;<?= $data['tiket']->stok ?></p>
 									<p>Qty : <input type="number" id="quantity" name="qty" value="1"></p>
-									<button type="submit" class="view_btn button_hover">Beli Tiket</button>
+									<button type="submit" class="btn theme_btn button_hover">Beli Tiket</button>
 								</div>
 							</div>
 						</div>

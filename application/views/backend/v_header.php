@@ -39,13 +39,13 @@
 						$total_pesanan_selesai = $this->m_pemesanan->total_pesanan_selesai();
 						$total_pesanan_batal = $this->m_pemesanan->total_pesanan_batal();
 						?>
-						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemesanan</a>
-						<div class="dropdown-menu bg-transparent border-0">
+						<a href="<?= base_url('transaksi') ?>" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Pemesanan</a>
+						<!-- <div class="dropdown-menu bg-transparent border-0">
 							<a href="<?= base_url('transaksi/masuk') ?>" class="dropdown-item">Pemesanan Masuk [<?= $total_pesanan ?>]</a>
 							<a href="<?= base_url('transaksi/proses') ?>" class="dropdown-item">Pemesanan Proses [<?= $total_pesanan_proses ?>]</a>
 							<a href="<?= base_url('transaksi/selesai') ?>" class="dropdown-item">Pemesanan Selesai [<?= $total_pesanan_selesai ?>]</a>
 							<a href="<?= base_url('transaksi/batal') ?>" class="dropdown-item">Pemesanan Batal [<?= $total_pesanan_batal ?>]</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</nav>

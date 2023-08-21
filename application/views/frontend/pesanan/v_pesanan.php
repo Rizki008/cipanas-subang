@@ -204,6 +204,8 @@
 								<?php if ($value->status_pemesanan == 2 && $value->status_ulasan == 0) { ?>
 									<span class="badge badge-success"> Tiket Telah Diambil</span>
 									<a href="<?= base_url('pemesanan/ulasan/' . $value->id_pemesanan) ?>" class="btn btn-sm btn-flat btn-warning">Ulasan</a>
+								<?php } elseif ($value->status_pemesanan == 2 && $value->status_ulasan == 1) { ?>
+									<span class="badge badge-success"> Tiket Telah Diambil</span>
 								<?php } ?>
 							</div>
 						</div>

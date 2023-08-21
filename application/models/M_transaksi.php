@@ -13,9 +13,10 @@ class M_transaksi extends CI_Model
 
 	public function tot_uang()
 	{
-		$this->db->select_sum('total');
-		$this->db->from('pemesanan');
-		return $this->db->get()->num_rows();
+		// $this->db->select_sum('total');
+		// $this->db->from('pemesanan');
+		// return $this->db->get()->num_rows();
+		return $this->db->query("SELECT SUM(total) as total_pemesanan FROM `pemesanan`;")->result();
 	}
 
 	public function tot_wisatawan()
@@ -111,7 +112,7 @@ class M_transaksi extends CI_Model
 
 	public function grafik_kelamin()
 	{
-		return $this->db->query("SELECT SUM(pemesanan.id_wisatawan) as hasil, jk FROM pemesanan JOIN wisatawan ON pemesanan.id_wisatawan=wisatawan.id_wisatawan GROUP BY wisatawan.jk")->result();
+		return $this->db->query("SELECT SUM(id_wisatawan) as hasil, jk FROM wisatawan GROUP BY jk;")->result();
 	}
 	public function grafik_datang()
 	{

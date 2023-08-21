@@ -39,13 +39,14 @@
 					<div class="accomodation_item text-center">
 						<div class="hotel_img">
 							<a href="<?= base_url('home/detail_produk/' . $value->id_tiket) ?>"><img src="<?= base_url('assets/tiket/' . $value->gambar) ?>" alt=""></a>
-							<button type="submit" class="btn theme_btn button_hover">Beli Tiket</button>
+							<!-- <button type="submit" class="btn theme_btn button_hover">Beli Tiket</button> -->
+							<a href="<?= base_url('home/detail_produk/' . $value->id_tiket) ?>" class="btn theme_btn button_hover">Beli Tiket</a>
 						</div>
 						<a href="<?= base_url('home/detail_produk/' . $value->id_tiket) ?>">
 							<h4 class="sec_h4"><?= $value->nama_tiket ?></h4>
 						</a>
-						<p><?= $value->deskripsi_tiket ?> </p>
-						<p>Stok Tiket: &nbsp;<?= $value->stok ?></p>
+						<!-- <p><?= $value->deskripsi_tiket ?> </p> -->
+						<!-- <p>Stok Tiket: &nbsp;<?= $value->stok ?></p> -->
 
 						<?php if ($value->range > 0) : ?>
 							<p>Harga Utama</p>

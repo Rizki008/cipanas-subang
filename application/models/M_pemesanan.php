@@ -144,7 +144,7 @@ class M_pemesanan extends CI_Model
 		// $this->db->order_by('pemesanan.id_pemesanan', 'desc');
 		// $this->db->group_by('detail_pemesanan.id_pemesanan');
 		// return $this->db->get()->result();
-		return $this->db->query("SELECT * FROM `pemesanan` LEFT JOIN `detail_pemesanan` ON `pemesanan`.`id_pemesanan` = `detail_pemesanan`.`id_pemesanan` LEFT JOIN `tiket` ON `detail_pemesanan`.`id_tiket` = `tiket`.`id_tiket` WHERE `status_pemesanan` ='2' AND `metode_bayar` = '2' AND `id_wisatawan` =" . $this->session->userdata('id_wisatawan') . " GROUP BY `detail_pemesanan`.`id_pemesanan`  ORDER BY `pemesanan`.`id_pemesanan` DESC;")->result();
+		return $this->db->query("SELECT * FROM `pemesanan` LEFT JOIN `detail_pemesanan` ON `pemesanan`.`id_pemesanan` = `detail_pemesanan`.`id_pemesanan` LEFT JOIN `tiket` ON `detail_pemesanan`.`id_tiket` = `tiket`.`id_tiket` LEFT JOIN ulasan ON ulasan.id_detail_pemesanan=detail_pemesanan.id_detail_pemesanan WHERE `status_pemesanan` ='2' AND `metode_bayar` = '2' AND `id_wisatawan` =" . $this->session->userdata('id_wisatawan') . " GROUP BY `detail_pemesanan`.`id_pemesanan`  ORDER BY `pemesanan`.`id_pemesanan` DESC;")->result();
 	}
 
 	public function batal_2()
