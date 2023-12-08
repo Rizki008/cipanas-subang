@@ -74,7 +74,7 @@
 							<select class="wide form-control" name="metode_bayar">
 								<option data-display="Metode Pembayaran">---Metode Pembayaran---</option>
 								<option value="1">Bayar Ditempat</option>
-								<option value="2">Transfer</option>
+								<!-- <option value="2">Transfer</option> -->
 							</select>
 						</div><br><br><br>
 					</div>

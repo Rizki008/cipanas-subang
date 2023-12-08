@@ -129,7 +129,7 @@ class Pembelian extends CI_Controller
 
 			$this->session->set_flashdata('pesan', 'Pesanan Diproses');
 			$this->cart->destroy();
-			redirect('home');
+			redirect('pemesanan');
 		}
 	}
 }
